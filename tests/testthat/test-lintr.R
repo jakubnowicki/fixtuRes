@@ -1,15 +1,11 @@
-linters_config <- lintr::with_defaults(
-  object_usage_linter = NULL,
-  line_length_linter = lintr::line_length_linter(120),
-  camel_case_linter = NULL,
-  snake_case_linter = NULL,
-  multiple_dots_linter = NULL
-)
+library(lintr)
 
-if (requireNamespace("lintr", quietly = TRUE)) {
-  context("lints")
-  test_that("Package Style", {
+context("lintr")
 
-    lintr::expect_lint_free(linters = linters_config)
-  })
-}
+test_that("lintr", {
+  lintr::expect_lint_free(
+    path = "../../00_pkg_src/fixtuRes",
+    relative_path = TRUE,
+    lintr::line_length_linter(120)
+  )
+})

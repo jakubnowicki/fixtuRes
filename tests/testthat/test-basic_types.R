@@ -7,7 +7,7 @@ test_that("integer function returns an integer", {
   result <- integer()
 
   # Then
-  expect_int(result)
+  checkmate::expect_int(result)
 })
 
 test_that("integer function returns an integer lower or equal given maximum", {
