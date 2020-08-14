@@ -26,6 +26,10 @@ jobs:
 
       - uses: actions/checkout@v1
 
+      - uses: r-lib/actions/setup-r@master
+        with:
+          r-version: ${{ matrix.config.r }}
+
       - uses: actions/cache@v2
         if: startsWith(runner.os, 'Linux')
         with:
@@ -49,10 +53,6 @@ jobs:
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
-
-      - uses: r-lib/actions/setup-r@master
-        with:
-          r-version: ${{ matrix.config.r }}
 
       - uses: r-lib/actions/setup-pandoc@master
 
