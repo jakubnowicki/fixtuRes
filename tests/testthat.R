@@ -1,4 +1,4 @@
 library(testthat)
 library(fixtuRes)
 
-test_check("fixtuRes")
+testthat::test_check("fixtuRes")
