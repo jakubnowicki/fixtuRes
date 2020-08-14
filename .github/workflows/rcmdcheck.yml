@@ -60,7 +60,7 @@ jobs:
         shell: Rscript {0}
         run: |
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
-          renv::restore(lockfile = "src/renv.lock")
+          renv::restore(lockfile = "renv.lock")
 
       - name: Install system dependencies
         if: runner.os == 'Linux'
