@@ -6,8 +6,8 @@
 #' @export
 #'
 #' @examples
-#' integer(min = 2, max = 10)
-integer <- function(min = 0, max = 999999) {
+#' random_integer(min = 2, max = 10)
+random_integer <- function(min = 0, max = 999999) {
   sample(min:max, 1)
 }
 
@@ -20,7 +20,8 @@ integer <- function(min = 0, max = 999999) {
 #' @import stringi
 #'
 #' @examples
-string <- function(length, pattern = "[A-Za-z0-9]") {
+#' random_string(length = 5)
+random_string <- function(length, pattern = "[A-Za-z0-9]") {
   stringi::stri_rand_strings(1, length = length, pattern = pattern)
 }
 
@@ -30,6 +31,7 @@ string <- function(length, pattern = "[A-Za-z0-9]") {
 #' @export
 #'
 #' @examples
-boolean <- function() {
+#' random_boolean()
+random_boolean <- function() {
   sample(c(TRUE, FALSE), 1)
 }
