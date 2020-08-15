@@ -67,3 +67,11 @@ test_that("string function returns a string that follows pattern", {
   # Then
   expect_string(result, pattern = letter)
 })
+
+test_that("boolean function returns a single boolean", {
+  # When
+  result <- boolean()
+
+  # Then
+  expect_logical(result, len = 1, any.missing = FALSE)
+})

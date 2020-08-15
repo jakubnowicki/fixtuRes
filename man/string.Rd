@@ -11,6 +11,9 @@ string(length, pattern = "[A-Za-z0-9]")
 
 \item{pattern}{string pattern for string to follow}
 }
+\value{
+random string
+}
 \description{
 Generate random string
 }
