@@ -75,3 +75,33 @@ test_that("random_boolean function returns a single boolean", {
   # Then
   expect_logical(result, len = 1, any.missing = FALSE)
 })
+
+test_that("random_numeric function returns a single numeric value", {
+  # When
+  result <- random_numeric()
+
+  # Then
+  expect_number(result)
+})
+
+test_that("random_numeric function returns a numeric value lower or equal given maximum", {
+  # Given
+  maximum <- runif(1)
+
+  # When
+  result <- random_numeric(max = maximum)
+
+  # Then
+  expect_number(result, upper = maximum)
+})
+
+test_that("random_numeric function returns a numeric value higher or equal given minimum", {
+  # Given
+  minimum <- runif(1)
+
+  # When
+  result <- random_numeric(min = minimum)
+
+  # Then
+  expect_number(result, lower = minimum)
+})

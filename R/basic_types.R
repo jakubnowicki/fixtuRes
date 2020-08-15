@@ -35,3 +35,16 @@ random_string <- function(length, pattern = "[A-Za-z0-9]") {
 random_boolean <- function() {
   sample(c(TRUE, FALSE), 1)
 }
+
+#' Generate random numeric
+#'
+#' @param min numeric minimum
+#' @param max numeric maximum
+#' @return random numeric
+#' @export
+#'
+#' @examples
+#' random_numeric(min = 1.5, max = 4.45)
+random_numeric <- function(min = 0, max = 999999) {
+  runif(1, min = min, max = max)
+}
