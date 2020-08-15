@@ -4,10 +4,11 @@
 \alias{random_string}
 \title{Generate random string}
 \usage{
-random_string(length, pattern = "[A-Za-z0-9]")
+random_string(length = NULL, pattern = "[A-Za-z0-9]")
 }
 \arguments{
-\item{length}{integer string length}
+\item{length}{integer or NULL (default) string length.
+If NULL, length will be random}
 
 \item{pattern}{string pattern for string to follow}
 }

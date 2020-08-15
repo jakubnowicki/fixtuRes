@@ -34,11 +34,8 @@ test_that("random_integer function returns an integer higher or equal given mini
 })
 
 test_that("random_string function returns a string", {
-  # Given
-  length <- fixtuRes::random_integer(min = 1, max = 10)
-
   # When
-  result <- random_string(length)
+  result <- random_string()
 
   # Then
   expect_string(result)
@@ -57,12 +54,11 @@ test_that("random_string function resturns a string with desired length", {
 
 test_that("random_string function returns a string that follows pattern", {
   # Given
-  length <- fixtuRes::random_integer(min = 1, max = 10)
   letter <- sample(letters, 1)
   pattern <- glue::glue("[{letter}]")
 
   # When
-  result <- random_string(length = length, pattern = pattern)
+  result <- random_string(pattern = pattern)
 
   # Then
   expect_string(result, pattern = letter)
