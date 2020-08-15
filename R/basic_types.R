@@ -42,6 +42,7 @@ random_boolean <- function() {
 #' @param max numeric maximum
 #' @return random numeric
 #' @export
+#' @importFrom stats runif
 #'
 #' @examples
 #' random_numeric(min = 1.5, max = 4.45)
