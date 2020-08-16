@@ -4,14 +4,14 @@
 \alias{set_vector}
 \title{Generate a vector of a values from a set}
 \usage{
-set_vector(size, set = NULL, type = NULL, set_size = NULL, ...)
+set_vector(size, set = NULL, set_type = NULL, set_size = NULL, ...)
 }
 \arguments{
 \item{size}{integer vector length}
 
 \item{set}{vector a set of values to pick from; default: NULL}
 
-\item{type}{string if set is NULL generate a random set of type
+\item{set_type}{string if set is NULL generate a random set of type
 ("integer", "string", "boolean", "numeric"); default: NULL}
 
 \item{set_size}{integer number of elements in random set; default: NULL}
@@ -29,5 +29,5 @@ When using a random set, be aware, that set has to be unique,
 }
 \examples{
 set_vector(10, set = c("a", "b", "c"))
-set_vector(size = 5, type = "string", set_size = 3)
+set_vector(size = 5, set_type = "string", set_size = 3)
 }
