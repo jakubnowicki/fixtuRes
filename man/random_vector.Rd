@@ -4,12 +4,14 @@
 \alias{random_vector}
 \title{Generate random vector of desired type}
 \usage{
-random_vector(size, type, ...)
+random_vector(size, type, unique = FALSE, ...)
 }
 \arguments{
 \item{size}{integer vector length}
 
 \item{type}{"integer", "string", "boolean" or "numeric" type of vector values}
+
+\item{unique}{boolean should the output contain only unique values}
 
 \item{...}{arguments passed to function responsible for generating values.
 Check \code{random_integer}, \code{random_string}, \code{random_boolean} and
