@@ -54,3 +54,15 @@ random_boolean <- function() {
 random_numeric <- function(min = 0, max = 999999) {
   runif(1, min = min, max = max)
 }
+
+#' Choose random element from set
+#'
+#' @param set vector set of values
+#' @return a single element from given set
+#' @export
+#'
+#' @examples
+#' random_from_set(c("a", "b", "c"))
+random_from_set <- function(set) {
+  sample(set, 1)
+}
