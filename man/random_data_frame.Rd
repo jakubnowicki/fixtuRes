@@ -9,7 +9,9 @@ random_data_frame(configuration)
 \arguments{
 \item{configuration}{list; a configuration of columns with data frame size
 passed as "size" and all arguments required by vector generator passed as
-sublists of sublist "columns"}
+sublists of sublist "columns". Column can be also generated with custom function.
+Pass "custom_column" as column type and function (or function name) as custom_column_generator.
+Column generator has to accept argument size and return a vector of this size.}
 }
 \value{
 data.frame
