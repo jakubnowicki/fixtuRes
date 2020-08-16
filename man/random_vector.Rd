@@ -4,12 +4,16 @@
 \alias{random_vector}
 \title{Generate random vector of desired type}
 \usage{
-random_vector(size, type, unique = FALSE, ...)
+random_vector(size, type, custom_generator = NULL, unique = FALSE, ...)
 }
 \arguments{
 \item{size}{integer vector length}
 
-\item{type}{"integer", "string", "boolean" or "numeric" type of vector values}
+\item{type}{"integer", "string", "boolean" or "numeric" type of vector values.
+If custom generator provided, should be set to "custom".}
+
+\item{custom_generator}{function or string; custom value generator.
+Can be a function or a string with function name. Default: NULL}
 
 \item{unique}{boolean should the output contain only unique values}
 
@@ -28,4 +32,8 @@ random_vector(5, "boolean")
 random_vector(10, "numeric", min = 1.5, max = 5)
 random_vector(4, "string", length = 4, pattern = "[ACGT]")
 random_vector(2, "integer", max = 10)
+
+# custom generator
+custom_generator <- function() sample(c("A", "B"), 1)
+random_vector(3, type = "custom", custom_generator = custom_generator)
 }

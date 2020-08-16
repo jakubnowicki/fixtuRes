@@ -14,8 +14,11 @@ replicate_unique <- function(size, generator, args) {
 #' Generate random vector of desired type
 #'
 #' @param size integer vector length
-#' @param type "integer", "string", "boolean" or "numeric" type of vector values
+#' @param type "integer", "string", "boolean" or "numeric" type of vector values.
+#'  If custom generator provided, should be set to "custom".
 #' @param unique boolean should the output contain only unique values
+#' @param custom_generator function or string; custom value generator.
+#'  Can be a function or a string with function name. Default: NULL
 #' @param ... arguments passed to function responsible for generating values.
 #'  Check \code{random_integer}, \code{random_string}, \code{random_boolean} and
 #'  \code{random_numeric} for details
@@ -28,11 +31,19 @@ replicate_unique <- function(size, generator, args) {
 #' random_vector(10, "numeric", min = 1.5, max = 5)
 #' random_vector(4, "string", length = 4, pattern = "[ACGT]")
 #' random_vector(2, "integer", max = 10)
-random_vector <- function(size, type, unique = FALSE, ...) {
+#'
+#' # custom generator
+#' custom_generator <- function() sample(c("A", "B"), 1)
+#' random_vector(3, type = "custom", custom_generator = custom_generator)
+random_vector <- function(size, type, custom_generator = NULL, unique = FALSE, ...) {
   checkmate::assert_choice(
     type,
-    choices = c("integer", "string", "boolean", "numeric")
+    choices = c("integer", "string", "boolean", "numeric", "custom")
   )
+
+  if (type == "custom" && is.character(custom_generator)) {
+    custom_generator <- get(custom_generator)
+  }
 
   args <- list(type, ...)
 
@@ -43,7 +54,8 @@ random_vector <- function(size, type, unique = FALSE, ...) {
       integer = do.call(random_integer, args),
       string = do.call(random_string, args),
       boolean = random_boolean(),
-      numeric = do.call(random_numeric, args)
+      numeric = do.call(random_numeric, args),
+      custom = do.call(custom_generator, args)
     )
   }
 
