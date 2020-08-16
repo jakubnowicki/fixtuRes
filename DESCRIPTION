@@ -1,6 +1,6 @@
 Package: fixtuRes
 Type: Package
-Title: Generate mock data
+Title: Generate Mock Data
 Version: 0.1.0
 Authors@R: person("Jakub", "Nowicki", email = "q.nowicki@gmail.com",
   role = c("aut", "cre"))
@@ -10,7 +10,8 @@ URL: https://github.com/jakubnowicki/fixtuRes
 Imports:
   stringi,
   stats,
-  checkmate
+  checkmate,
+  purrr
 Suggests:
   testthat
 Encoding: UTF-8

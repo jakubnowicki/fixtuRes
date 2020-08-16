@@ -60,7 +60,7 @@ random_vector <- function(size, type, unique = FALSE, ...) {
 #'
 #' @param size integer vector length
 #' @param set vector a set of values to pick from; default: NULL
-#' @param type string if set is NULL generate a random set of type
+#' @param set_type string if set is NULL generate a random set of type
 #'  ("integer", "string", "boolean", "numeric"); default: NULL
 #' @param set_size integer number of elements in random set; default: NULL
 #' @param ... additional arguments for random set generator.
@@ -72,15 +72,15 @@ random_vector <- function(size, type, unique = FALSE, ...) {
 #'
 #' @examples
 #' set_vector(10, set = c("a", "b", "c"))
-#' set_vector(size = 5, type = "string", set_size = 3)
-set_vector <- function(size, set = NULL, type = NULL, set_size = NULL, ...) {
-  if (is.null(set) && is.null(type)) {
+#' set_vector(size = 5, set_type = "string", set_size = 3)
+set_vector <- function(size, set = NULL, set_type = NULL, set_size = NULL, ...) {
+  if (is.null(set) && is.null(set_type)) {
     stop("Provide following arguments: set or type and set size.")
   }
 
   if (is.null(set)) {
     if (is.null(set_size)) stop("Provide set_size.")
-    set <- random_vector(size = set_size, type = type, unique = TRUE, ...)
+    set <- random_vector(size = set_size, type = set_type, unique = TRUE, ...)
   }
 
   return(replicate(size, random_from_set(set)))
