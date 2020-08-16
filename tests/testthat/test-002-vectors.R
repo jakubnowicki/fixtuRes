@@ -33,3 +33,14 @@ test_that("random_vector function returns a vector of selected size", {
   expect_true(length(result_one) == size_one)
   expect_true(length(result_two) == size_two)
 })
+
+test_that("set_vector function returns a vector that contains only provided values", {
+  # Given
+  set <- replicate(3, random_string())
+
+  # When
+  result <- set_vector(size = random_integer(min = 10, max = 20), set = set)
+
+  # Then
+  expect_true(all(result %in% set))
+})
