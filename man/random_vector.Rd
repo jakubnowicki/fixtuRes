@@ -12,7 +12,8 @@ random_vector(size, type, custom_generator = NULL, unique = FALSE, ...)
 \item{type}{"integer", "string", "boolean" or "numeric" type of vector values.
 If custom generator provided, should be set to "custom".}
 
-\item{custom_generator}{function; custom value generator. Default: NULL}
+\item{custom_generator}{function or string; custom value generator.
+Can be a function or a string with function name. Default: NULL}
 
 \item{unique}{boolean should the output contain only unique values}
 

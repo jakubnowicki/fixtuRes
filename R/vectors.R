@@ -17,7 +17,8 @@ replicate_unique <- function(size, generator, args) {
 #' @param type "integer", "string", "boolean" or "numeric" type of vector values.
 #'  If custom generator provided, should be set to "custom".
 #' @param unique boolean should the output contain only unique values
-#' @param custom_generator function; custom value generator. Default: NULL
+#' @param custom_generator function or string; custom value generator.
+#'  Can be a function or a string with function name. Default: NULL
 #' @param ... arguments passed to function responsible for generating values.
 #'  Check \code{random_integer}, \code{random_string}, \code{random_boolean} and
 #'  \code{random_numeric} for details
@@ -39,6 +40,10 @@ random_vector <- function(size, type, custom_generator = NULL, unique = FALSE, .
     type,
     choices = c("integer", "string", "boolean", "numeric", "custom")
   )
+
+  if (type == "custom" && is.character(custom_generator)) {
+    custom_generator <- get(custom_generator)
+  }
 
   args <- list(type, ...)
 
