@@ -6,7 +6,7 @@ context("data frames")
 test_that("random_data_frame function returns a data frame", {
   # Given
   types <- c("integer", "string", "boolean", "numeric")
-  size <- random_integer(min = 1, max = 20),
+  size <- random_integer(min = 1, max = 20)
   conf <- list(
     columns = list(
       first_column = list(
