@@ -2,21 +2,16 @@
 % Please edit documentation in R/mock_data_generator.R
 \name{MockDataGenerator}
 \alias{MockDataGenerator}
-\title{MockDataGenerator R6 Class}
+\title{MockDataGenerator}
 \description{
-MockDataGenerator R6 Class
-
-MockDataGenerator R6 Class
-}
-\details{
 Object that stores mock data configurations and generated datasets
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{MockDataGenerator$new()}}
-\item \href{#method-generate_data}{\code{MockDataGenerator$generate_data()}}
 \item \href{#method-get_data}{\code{MockDataGenerator$get_data()}}
+\item \href{#method-get_all_data}{\code{MockDataGenerator$get_all_data()}}
 \item \href{#method-clone}{\code{MockDataGenerator$clone()}}
 }
 }
@@ -42,31 +37,12 @@ A new MockDataGenerator object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-generate_data"></a>}}
-\if{latex}{\out{\hypertarget{method-generate_data}{}}}
-\subsection{Method \code{generate_data()}}{
-Generate and save a dataset
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MockDataGenerator$generate_data(data_name, size)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{data_name}}{string; name of data set to generate}
-
-\item{\code{size}}{integer; number of rows in generated data frame}
-}
-\if{html}{\out{</div>}}
-}
-}
-\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_data"></a>}}
 \if{latex}{\out{\hypertarget{method-get_data}{}}}
 \subsection{Method \code{get_data()}}{
 Get a dataset (if does not exist, generate it)
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{MockDataGenerator$get_data(data_name, size = NULL)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{MockDataGenerator$get_data(data_name, size = NULL, refresh = FALSE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -75,11 +51,35 @@ Get a dataset (if does not exist, generate it)
 \item{\code{data_name}}{string; data set name to retrieve}
 
 \item{\code{size}}{integer; size of dataset (if not generated before)}
+
+\item{\code{refresh}}{boolean; refresh existing data?}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
 mock dataset
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_all_data"></a>}}
+\if{latex}{\out{\hypertarget{method-get_all_data}{}}}
+\subsection{Method \code{get_all_data()}}{
+Get all datasets
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{MockDataGenerator$get_all_data(refresh = FALSE, sizes = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{refresh}}{boolean; refresh existing data?}
+
+\item{\code{sizes}}{integer; or vector of integers with data sizes}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+list with all datasets
 }
 }
 \if{html}{\out{<hr>}}

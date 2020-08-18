@@ -12,7 +12,8 @@ Imports:
   stats,
   checkmate,
   purrr,
-  R6
+  R6,
+  glue
 Suggests:
   testthat
 Encoding: UTF-8
