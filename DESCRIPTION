@@ -13,7 +13,8 @@ Imports:
   checkmate,
   purrr,
   R6,
-  glue
+  glue,
+  yaml
 Suggests:
   testthat
 Encoding: UTF-8

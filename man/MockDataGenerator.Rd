@@ -27,8 +27,9 @@ Create a new MockDataGenerator object
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{configuration}}{list; list with datasets configurations.
-Check \code{random_data_frame} for configuration details.}
+\item{\code{configuration}}{list or path to yaml file; list with datasets configurations.
+Check \code{random_data_frame} for configuration details.
+For a sample yaml check examples/simple.yaml}
 }
 \if{html}{\out{</div>}}
 }

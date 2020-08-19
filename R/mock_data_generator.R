@@ -4,6 +4,7 @@
 #' @import purrr
 #' @import R6
 #' @import glue
+#' @import yaml
 #' @export
 MockDataGenerator <- R6::R6Class(
   classname = "MockDataGenerator",
@@ -33,10 +34,14 @@ MockDataGenerator <- R6::R6Class(
   public = list(
     #' @description
     #' Create a new MockDataGenerator object
-    #' @param configuration list; list with datasets configurations.
+    #' @param configuration list or path to yaml file; list with datasets configurations.
     #'  Check \code{random_data_frame} for configuration details.
+    #'  For a sample yaml check examples/simple.yaml
     #' @return A new MockDataGenerator object
     initialize = function(configuration) {
+      if (test_string(configuration)) {
+        configuration <- yaml::read_yaml(configuration)
+      }
       private$generators <- purrr::map(configuration, create_data_generator)
       private$default_sizes <- purrr::map(configuration, private$get_default_size)
     },
