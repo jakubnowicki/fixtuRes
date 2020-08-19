@@ -4,7 +4,7 @@
 \alias{random_data_frame}
 \title{Generate a random data frame from given configuration}
 \usage{
-random_data_frame(configuration)
+random_data_frame(configuration, size)
 }
 \arguments{
 \item{configuration}{list; a configuration of columns with data frame size
@@ -12,6 +12,8 @@ passed as "size" and all arguments required by vector generator passed as
 sublists of sublist "columns". Column can be also generated with custom function.
 Pass "custom_column" as column type and function (or function name) as custom_column_generator.
 Column generator has to accept argument size and return a vector of this size.}
+
+\item{size}{integer; number of rows to generate.}
 }
 \value{
 data.frame
@@ -21,7 +23,6 @@ Generate a random data frame from given configuration
 }
 \examples{
 conf <- list(
- size = 10,
  columns = list(
    first_column = list(
      type = "string",
@@ -34,5 +35,5 @@ conf <- list(
  )
 )
 
-random_data_frame(conf)
+random_data_frame(conf, size = 10)
 }

@@ -5,13 +5,13 @@
 #'  sublists of sublist "columns". Column can be also generated with custom function.
 #'  Pass "custom_column" as column type and function (or function name) as custom_column_generator.
 #'  Column generator has to accept argument size and return a vector of this size.
+#' @param size integer; number of rows to generate.
 #' @export
 #' @import purrr
 #' @return data.frame
 #'
 #' @examples
 #' conf <- list(
-#'  size = 10,
 #'  columns = list(
 #'    first_column = list(
 #'      type = "string",
@@ -24,9 +24,8 @@
 #'  )
 #' )
 #'
-#' random_data_frame(conf)
-random_data_frame <- function(configuration) {
-  size <- configuration$size
+#' random_data_frame(conf, size = 10)
+random_data_frame <- function(configuration, size) {
   columns <- purrr::map(configuration$columns, ~create_column_wrapper(.x, size = size))
 
   return(as.data.frame(columns, stringsAsFactors = FALSE))
@@ -51,4 +50,11 @@ create_column <- function(size, type, custom_column_generator = NULL, ...) {
   )
 
   return(generator)
+}
+
+# Constructor for data frame generation function
+create_data_generator <- function(configuration) {
+  function(size) {
+    random_data_frame(configuration, size)
+  }
 }

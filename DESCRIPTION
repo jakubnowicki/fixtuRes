@@ -11,7 +11,9 @@ Imports:
   stringi,
   stats,
   checkmate,
-  purrr
+  purrr,
+  R6,
+  glue
 Suggests:
   testthat
 Encoding: UTF-8
