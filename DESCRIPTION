@@ -11,6 +11,7 @@ Imports:
   stringi,
   stats,
   checkmate,
+  rlang,
   purrr,
   R6,
   glue,

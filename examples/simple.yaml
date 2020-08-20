@@ -21,3 +21,17 @@ data_frame_two:
       type: set
       set: ["a", "b", "c"]
   default_size: 5
+data_frame_three:
+  columns:
+    one:
+      type: integer
+      max: 10
+    two:
+      type: calculated
+      formula: one*2
+    three:
+      type: integer
+      max: 10
+    four:
+      type: calculated
+      formula: one + three

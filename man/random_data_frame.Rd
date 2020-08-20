@@ -11,7 +11,9 @@ random_data_frame(configuration, size)
 passed as "size" and all arguments required by vector generator passed as
 sublists of sublist "columns". Column can be also generated with custom function.
 Pass "custom_column" as column type and function (or function name) as custom_column_generator.
-Column generator has to accept argument size and return a vector of this size.}
+Column generator has to accept argument size and return a vector of this size.
+Third option is to pass an expression that involves existing columns. This can be a simple one,
+or a call of an existing function.}
 
 \item{size}{integer; number of rows to generate.}
 }
@@ -31,6 +33,10 @@ conf <- list(
    second_column = list(
      type = "integer",
      max = 10
+   ),
+   third_column = list(
+     type = "calculated",
+     formula = "second_column * 2"
    )
  )
 )

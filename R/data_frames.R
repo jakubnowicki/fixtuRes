@@ -5,9 +5,14 @@
 #'  sublists of sublist "columns". Column can be also generated with custom function.
 #'  Pass "custom_column" as column type and function (or function name) as custom_column_generator.
 #'  Column generator has to accept argument size and return a vector of this size.
+#'  Third option is to pass an expression that involves existing columns. This can be a simple one,
+#'  or a call of an existing function.
 #' @param size integer; number of rows to generate.
 #' @export
+#' @importFrom rlang parse_expr
+#' @importFrom rlang fn_fmls_names
 #' @import purrr
+#' @import glue
 #' @return data.frame
 #'
 #' @examples
@@ -20,15 +25,25 @@
 #'    second_column = list(
 #'      type = "integer",
 #'      max = 10
+#'    ),
+#'    third_column = list(
+#'      type = "calculated",
+#'      formula = "second_column * 2"
 #'    )
 #'  )
 #' )
 #'
 #' random_data_frame(conf, size = 10)
 random_data_frame <- function(configuration, size) {
-  columns <- purrr::map(configuration$columns, ~create_column_wrapper(.x, size = size))
+  col_names <- purrr::map(configuration, ~names(.x))$columns
 
-  return(as.data.frame(columns, stringsAsFactors = FALSE))
+  simple <- purrr::discard(configuration$columns, ~.x$type == "calculated")
+  calculated <- purrr::keep(configuration$columns, ~.x$type == "calculated")
+  simple_columns <- purrr::map(simple, ~create_column_wrapper(.x, size = size))
+  calculated_functions <- purrr::map(calculated, ~calculated_column_functions(.x$formula, columns = simple_columns))
+  output <- calculate_columns(simple_columns, calculated_functions)
+  output <- as.data.frame(output, stringsAsFactors = FALSE)
+  output[, col_names]
 }
 
 # Wrapper that allows passing additional external arguments (eg. size)
@@ -57,4 +72,64 @@ create_data_generator <- function(configuration) {
   function(size) {
     random_data_frame(configuration, size)
   }
+}
+
+# Check if string is a function
+check_if_is_function <- function(string) {
+  grepl(pattern = "function", unlist(strsplit(string, " "))[1])
+}
+
+# convert string to a function
+convert_to_function <- function(string) {
+  args <- paste(all.vars(rlang::parse_expr(string)), collapse = ", ")
+  glue::glue(
+    "function({args}) {{
+        {string}
+      }}"
+  )
+}
+
+# Calculate column from formula
+calculated_column_functions <- function(fun, columns) {
+  if (!check_if_is_function(fun)) {
+    fun <- convert_to_function(fun)
+  }
+  fun <- eval(rlang::parse_expr(fun))
+  function_args <- rlang::fn_fmls_names(fun)
+  args <- columns[function_args]
+  return(list(fun = fun, args = function_args))
+}
+
+# Calculate columns
+calculate_columns <- function(simple_columns, functions) {
+  simple_names <- names(simple_columns)
+  calculated_names <- names(functions)
+
+  all_args <- unlist(purrr::map(functions, ~.x$args))
+
+  if (!all(all_args %in% c(simple_names, calculated_names))) {
+    stop("Caclulated columns require columns that do not exist.")
+  }
+
+  columns <- recursive_column_calculation(simple_columns, functions)
+
+  return(columns)
+}
+
+# Recursive function for calculating columns
+recursive_column_calculation <- function(simple_columns, functions) {
+  functions_names <- names(functions)
+  for (function_name in functions_names) {
+    fun <- functions[[function_name]]
+    if (all(fun$args %in% names(simple_columns))) {
+      simple_columns[[function_name]] <- do.call(fun$fun, simple_columns[fun$args])
+      functions[[function_name]] <- NULL
+      if (length(functions) == 0) {
+        break()
+      } else {
+        simple_columns <- recursive_column_calculation(simple_columns, functions)
+      }
+    }
+  }
+  return(simple_columns)
 }
