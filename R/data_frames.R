@@ -40,9 +40,9 @@ random_data_frame <- function(configuration, size) {
   simple <- purrr::discard(configuration$columns, ~.x$type == "calculated")
   calculated <- purrr::keep(configuration$columns, ~.x$type == "calculated")
   simple_columns <- purrr::map(simple, ~create_column_wrapper(.x, size = size))
-  calculated_columns <- purrr::map(calculated, ~calculated_column(.x$formula, columns = simple_columns))
-
-  output <- as.data.frame(c(simple_columns, calculated_columns), stringsAsFactors = FALSE)
+  calculated_functions <- purrr::map(calculated, ~calculated_column_functions(.x$formula, columns = simple_columns))
+  output <- calculate_columns(simple_columns, calculated_functions)
+  output <- as.data.frame(output, stringsAsFactors = FALSE)
   output[, col_names]
 }
 
@@ -90,12 +90,46 @@ convert_to_function <- function(string) {
 }
 
 # Calculate column from formula
-calculated_column <- function(fun, columns) {
+calculated_column_functions <- function(fun, columns) {
   if (!check_if_is_function(fun)) {
     fun <- convert_to_function(fun)
   }
   fun <- eval(rlang::parse_expr(fun))
   function_args <- rlang::fn_fmls_names(fun)
   args <- columns[function_args]
-  do.call(fun, args)
+  return(list(fun = fun, args = function_args))
+}
+
+# Calculate columns
+calculate_columns <- function(simple_columns, functions) {
+  simple_names <- names(simple_columns)
+  calculated_names <- names(functions)
+
+  all_args <- unlist(purrr::map(functions, ~.x$args))
+
+  if (!all(all_args %in% c(simple_names, calculated_names))) {
+    stop("Caclulated columns require columns that do not exist.")
+  }
+
+  columns <- recursive_column_calculation(simple_columns, functions)
+
+  return(columns)
+}
+
+# Recursive function for calculating columns
+recursive_column_calculation <- function(simple_columns, functions) {
+  functions_names <- names(functions)
+  for (function_name in functions_names) {
+    fun <- functions[[function_name]]
+    if (all(fun$args %in% names(simple_columns))) {
+      simple_columns[[function_name]] <- do.call(fun$fun, simple_columns[fun$args])
+      functions[[function_name]] <- NULL
+      if (length(functions) == 0) {
+        break()
+      } else {
+        simple_columns <- recursive_column_calculation(simple_columns, functions)
+      }
+    }
+  }
+  return(simple_columns)
 }
