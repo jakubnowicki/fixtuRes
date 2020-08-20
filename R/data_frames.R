@@ -35,12 +35,15 @@
 #'
 #' random_data_frame(conf, size = 10)
 random_data_frame <- function(configuration, size) {
+  col_names <- purrr::map(configuration, ~names(.x))$columns
+
   simple <- purrr::discard(configuration$columns, ~.x$type == "calculated")
   calculated <- purrr::keep(configuration$columns, ~.x$type == "calculated")
   simple_columns <- purrr::map(simple, ~create_column_wrapper(.x, size = size))
   calculated_columns <- purrr::map(calculated, ~calculated_column(.x$formula, columns = simple_columns))
 
-  as.data.frame(c(simple_columns, calculated_columns), stringsAsFactors = FALSE)
+  output <- as.data.frame(c(simple_columns, calculated_columns), stringsAsFactors = FALSE)
+  output[, col_names]
 }
 
 # Wrapper that allows passing additional external arguments (eg. size)

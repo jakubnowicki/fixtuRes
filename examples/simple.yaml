@@ -27,8 +27,11 @@ data_frame_three:
       type: integer
       max: 10
     two:
+      type: calculated
+      formula: one*2
+    three:
       type: integer
       max: 10
-    three:
+    four:
       type: calculated
-      formula: one + two
+      formula: one + three
