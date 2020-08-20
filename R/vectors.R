@@ -24,7 +24,7 @@ replicate_unique <- function(size, generator, args) {
 #'  \code{random_numeric} for details
 #' @return vector of random values of chosen type
 #' @export
-#' @import checkmate
+#' @importFrom checkmate assert_choice
 #'
 #' @examples
 #' random_vector(5, "boolean")
