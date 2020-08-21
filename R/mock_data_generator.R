@@ -34,9 +34,9 @@ MockDataGenerator <- R6::R6Class(
   public = list(
     #' @description
     #' Create a new MockDataGenerator object
-    #' @param configuration list or path to yaml file; list with datasets configurations.
-    #'  Check \code{random_data_frame} for configuration details.
-    #'  For a sample yaml check examples/simple.yaml
+    #' @param configuration list or path to yaml file with datasets configurations.
+    #'  Check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/docs/configuration.md}{configuration} for details.
+    #'  For a sample yaml check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/examples}{examples}.
     #' @return A new MockDataGenerator object
     initialize = function(configuration) {
       if (test_string(configuration)) {
@@ -47,9 +47,9 @@ MockDataGenerator <- R6::R6Class(
     },
     #' @description
     #' Get a dataset (if does not exist, generate it)
-    #' @param data_name string; data set name to retrieve
-    #' @param size integer; size of dataset (if not generated before)
-    #' @param refresh boolean; refresh existing data?
+    #' @param data_name string, data set name to retrieve
+    #' @param size integer, size of dataset (if not generated before)
+    #' @param refresh boolean, refresh existing data?
     #' @return mock dataset
     get_data = function(data_name, size = NULL, refresh = FALSE) {
       if (is.null(private$data[[data_name]]) || isTRUE(refresh)) {
@@ -62,8 +62,8 @@ MockDataGenerator <- R6::R6Class(
     },
     #' @description
     #' Get all datasets
-    #' @param refresh boolean; refresh existing data?
-    #' @param sizes integer; or vector of integers with data sizes
+    #' @param refresh boolean, refresh existing data?
+    #' @param sizes integer, or vector of integers with data sizes
     #' @return list with all datasets
     get_all_data = function(refresh = FALSE, sizes = NULL) {
       data_names <- names(private$generators)
