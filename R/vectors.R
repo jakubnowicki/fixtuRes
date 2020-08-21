@@ -11,17 +11,17 @@ replicate_unique <- function(size, generator, args) {
   return(output)
 }
 
-#' Generate random vector of desired type
+#' Generate a random vector of desired type
 #'
-#' @param size integer vector length
+#' @param size integer, vector length
 #' @param type "integer", "string", "boolean" or "numeric" type of vector values.
 #'  If custom generator provided, should be set to "custom".
-#' @param unique boolean should the output contain only unique values
-#' @param custom_generator function or string; custom value generator.
+#' @param unique boolean, should the output contain only unique values. Default: FALSE.
+#' @param custom_generator function or string, custom value generator.
 #'  Can be a function or a string with function name. Default: NULL
 #' @param ... arguments passed to function responsible for generating values.
-#'  Check \code{random_integer}, \code{random_string}, \code{random_boolean} and
-#'  \code{random_numeric} for details
+#'  Check \code{\link{random_integer}}, \code{\link{random_string}}, \code{\link{random_boolean}}
+#'  and \code{\link{random_numeric}} for details
 #' @return vector of random values of chosen type
 #' @export
 #' @importFrom checkmate assert_choice
@@ -70,13 +70,13 @@ random_vector <- function(size, type, custom_generator = NULL, unique = FALSE, .
 
 #' Generate a vector of a values from a set
 #'
-#' @param size integer vector length
+#' @param size integer, vector length
 #' @param set vector a set of values to pick from; default: NULL
 #' @param set_type string if set is NULL generate a random set of type
 #'  ("integer", "string", "boolean", "numeric"); default: NULL
-#' @param set_size integer number of elements in random set; default: NULL
+#' @param set_size integer, number of elements in random set; default: NULL
 #' @param ... additional arguments for random set generator.
-#'  For details check \code{random_vector}
+#'  For details check \code{\link{random_vector}}
 #' @note When using a random set, be aware, that set has to be unique,
 #'  thus if arguments passed to generator do not allow this, the function
 #'  can end up in an infinite loop.
