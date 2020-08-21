@@ -68,6 +68,6 @@ my_mock_generator$get_data("my_data_frame")
 
 <img src="man/figures/mock_data.png" />
 
-For detailed description of configuration check [this document](docs/configuration.md).
+For a detailed description of configuration check [this document](docs/configuration.md).
 
 Low level functions are described in R package documentation.
