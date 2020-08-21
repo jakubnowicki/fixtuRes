@@ -7,10 +7,10 @@
 random_from_set(set)
 }
 \arguments{
-\item{set}{vector set of values}
+\item{set}{vector, set of values to choose from}
 }
 \value{
-a single element from given set
+a single element from a given set
 }
 \description{
 Choose random element from set

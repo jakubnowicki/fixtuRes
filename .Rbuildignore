@@ -4,3 +4,5 @@
 ^\.Rproj\.user$
 ^.github$
 ^tests$
+^examples$
+^README.md$
