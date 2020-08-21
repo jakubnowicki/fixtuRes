@@ -1,0 +1,21 @@
+my_data_frame:
+  columns:
+    id:
+      type: integer
+      min: 100
+      max: 999
+      unique: TRUE
+    code:
+      type: string
+      pattern: "[A-Z]"
+      length: 3
+    metric:
+      type: numeric
+      min: -10
+      max: 10
+    type:
+      type: set
+      set: ["TEST", "PROD", "QUA"]
+    pass:
+      type: calculated
+      formula: "metric > 3"

@@ -5,6 +5,7 @@
 #' @import R6
 #' @import glue
 #' @import yaml
+#' @importFrom checkmate test_string test_function
 #' @export
 MockDataGenerator <- R6::R6Class(
   classname = "MockDataGenerator",
@@ -52,6 +53,9 @@ MockDataGenerator <- R6::R6Class(
     #' @param refresh boolean, refresh existing data?
     #' @return mock dataset
     get_data = function(data_name, size = NULL, refresh = FALSE) {
+      if (!is.null(size) && isFALSE(refresh) && !is.null(private$data[[data_name]])) {
+        stop("You provided a new data size. If you want to regenerate data please add 'refresh = TRUE' argument.")
+      }
       if (is.null(private$data[[data_name]]) || isTRUE(refresh)) {
         size <- if (is.null(size)) eval(private$default_sizes[[data_name]]) else size
         if (test_function(size)) size <- size()
