@@ -35,7 +35,11 @@ replicate_unique <- function(size, generator, args) {
 #' # custom generator
 #' custom_generator <- function() sample(c("A", "B"), 1)
 #' random_vector(3, type = "custom", custom_generator = custom_generator)
-random_vector <- function(size, type, custom_generator = NULL, unique = FALSE, ...) {
+random_vector <- function(size,
+                          type,
+                          custom_generator = NULL,
+                          unique = FALSE,
+                          ...) {
   checkmate::assert_choice(
     type,
     choices = c("integer", "string", "boolean", "numeric", "custom")
@@ -66,6 +70,22 @@ random_vector <- function(size, type, custom_generator = NULL, unique = FALSE, .
   }
 
   return(output)
+}
+
+additional_vals <- function(vector, values, amount) {
+  if (length(values) != length(amount)) {
+    stop("Additional values and additional values amount should have the same lenght.")
+  }
+  vector_size <- length(vector)
+
+  positions <- seq_along(vector)
+  for (i in seq_along(values)) {
+    if (amount[i] >= 1) size <- amount[i] else size <- round(vector_size*amount[i])
+    value_locations <- sample(positions, size)
+    vector[value_locations] <- values[i]
+    positions <- setdiff(positions, value_locations)
+  }
+  return(vector)
 }
 
 #' Generate a vector of a values from a set

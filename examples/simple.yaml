@@ -11,6 +11,8 @@ data_frame_one:
       type: numeric
       min: 0
       max: 1
+      additional_values: [NA, NaN]
+      additional_values_amount: [1, 0.2]
     bool:
       type: boolean
 data_frame_two:
