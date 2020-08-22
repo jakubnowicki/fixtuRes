@@ -14,6 +14,7 @@ second_data_frame:
 third_data_frame:
   ...
 ```
+
 ## Data frame configuration
 
 Data frame configuration includes two sections:
@@ -23,7 +24,126 @@ Data frame configuration includes two sections:
 
 ### Columns
 
-__TODO__
+Each column of your data frame should be described in a separate entry in
+columns section. Entry name will be used as column name.
+
+Currently there are three major types of columns implemented:
+
+1. Built-in basic columns (integer, numeric, string, boolean and set)
+2. Columns that use custom function to be generated.
+3. Columns calculated from other columns.
+
+Type of column is set by choosing a proper `type` value in column
+description. Check following sections for more details.
+
+#### Built-in columns
+
+##### integer
+
+Random integers from a range
+
+Parameters:
+
+* `type: integer` - column type
+* `unique` (optional, default: FALSE) - boolean, should values be unique
+* `min` (optional, default: 0) - integer, minimum value to occur in the column.
+* `max` (optional, default: 999999) - integer, maximum value to occur in the column.
+
+Example:
+
+```yaml
+data_frame:
+  integer_column:
+    type: integer
+    min: 2
+    max: 10
+```
+
+##### numeric
+
+Random float numbers from a range
+
+Parameters:
+
+* `type: numeric` - column type
+* `unique` (optional, default: FALSE) - boolean, should values be unique
+* `min` (optional, default: 0) - numeric, minimum value to occur in the column.
+* `max` (optional, default: 999999) - numeric, maximum value to occur in the column.
+
+Example:
+
+```yaml
+data_frame:
+  numeric_column:
+    type: numeric
+    min: 2.12
+    max: 10.3
+```
+
+##### string
+
+Random string that follows given pattern
+
+Parameters:
+
+* `type: string` - column type
+* `unique` (optional, default: FALSE) - boolean, should values be unique
+* `length` (optional, default: NULL) - integer, string length. If NULL, string length will be random (see next parameters).
+* `min_length` (optional, default: 1) - integer, minimum length if length is random.
+* `max_length` (optional, default: 15) - integer, maximum length if length is random.
+* `pattern` (optional, default: "[A-Za-z0-9]") - string pattern, for details check [this](https://rdrr.io/cran/stringi/man/stringi-search-charclass.html).
+
+Example:
+
+```yaml
+data_frame:
+  string_column:
+    type: string
+    length: 3
+    pattern: "[ACGT]"
+```
+
+##### boolean
+
+Random boolean
+
+Parameters:
+
+* `type: boolean` - column type
+
+Example:
+
+```yaml
+data_frame:
+  boolean_column:
+    type: boolean
+```
+
+##### set
+
+Column with elements from a set
+
+Parameters:
+* `type: set` - column type
+* `set` (optional, default: NULL) - set of possible values, if NULL, will use a random set.
+* `set_type` (optional, default: NULL) - type of random set, can be "integer", "numeric" or "string".
+* `set_size` (optional, default: NULL) - integer, size of random set
+* If set is random, you can add parameters required by type of set (eg, min, max, pattern, etc.)
+
+Example:
+
+```yaml
+data_frame:
+  set_column_one:
+    type: set
+    set: ["aardvark", "elephant", "hedgehog"]
+  set_column_two:
+    type: set
+    set_type: integer
+    set_size: 3
+    min: 2
+    max: 10
+```
 
 ### Default size
 

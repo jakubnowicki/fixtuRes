@@ -15,6 +15,8 @@ random_integer <- function(min = 0, max = 999999) {
 #'
 #' @param length integer or NULL (default), output string length.
 #'  If NULL, length will be random
+#' @param min_length integer, minimum length if length is random.
+#'  Default: 1.
 #' @param max_length integer, maximum length if length is random.
 #'  Default: 15.
 #' @param pattern string, pattern for string to follow.
@@ -25,9 +27,9 @@ random_integer <- function(min = 0, max = 999999) {
 #'
 #' @examples
 #' random_string(length = 5)
-random_string <- function(length = NULL, max_length = 15, pattern = "[A-Za-z0-9]") {
+random_string <- function(length = NULL, min_length = 1, max_length = 15, pattern = "[A-Za-z0-9]") {
   if (is.null(length)) {
-    length <- random_integer(min = 1, max = max_length)
+    length <- random_integer(min = min_length, max = max_length)
   }
 
   stringi::stri_rand_strings(1, length = length, pattern = pattern)
