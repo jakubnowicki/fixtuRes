@@ -1,0 +1,6 @@
+data_frame:
+  columns:
+    custom_column:
+      type: custom
+      custom_generator: return_sample_paste
+      vector_of_values: ["a", "b", "c", "d"]

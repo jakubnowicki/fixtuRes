@@ -35,6 +35,9 @@
 #'
 #' random_data_frame(conf, size = 10)
 random_data_frame <- function(configuration, size) {
+  if (is.null(configuration$columns)) {
+    stop("Columns are missing in provided configuration.")
+  }
   col_names <- purrr::map(configuration, ~names(.x))$columns
 
   simple <- purrr::discard(configuration$columns, ~.x$type == "calculated")

@@ -53,10 +53,11 @@ Example:
 
 ```yaml
 data_frame:
-  integer_column:
-    type: integer
-    min: 2
-    max: 10
+  columns:
+    integer_column:
+      type: integer
+      min: 2
+      max: 10
 ```
 
 ##### numeric
@@ -74,10 +75,11 @@ Example:
 
 ```yaml
 data_frame:
-  numeric_column:
-    type: numeric
-    min: 2.12
-    max: 10.3
+  columns:
+    numeric_column:
+      type: numeric
+      min: 2.12
+      max: 10.3
 ```
 
 ##### string
@@ -97,10 +99,11 @@ Example:
 
 ```yaml
 data_frame:
-  string_column:
-    type: string
-    length: 3
-    pattern: "[ACGT]"
+  columns:
+    string_column:
+      type: string
+      length: 3
+      pattern: "[ACGT]"
 ```
 
 ##### boolean
@@ -115,8 +118,9 @@ Example:
 
 ```yaml
 data_frame:
-  boolean_column:
-    type: boolean
+  columns:
+    boolean_column:
+      type: boolean
 ```
 
 ##### set
@@ -134,15 +138,50 @@ Example:
 
 ```yaml
 data_frame:
-  set_column_one:
-    type: set
-    set: ["aardvark", "elephant", "hedgehog"]
-  set_column_two:
-    type: set
-    set_type: integer
-    set_size: 3
-    min: 2
-    max: 10
+  columns:
+    set_column_one:
+      type: set
+      set: ["aardvark", "elephant", "hedgehog"]
+    set_column_two:
+      type: set
+      set_type: integer
+      set_size: 3
+      min: 2
+      max: 10
+```
+
+#### Custom columns
+
+There are two levels of custom generator that can be used.
+You can provide a function that generates a single value or
+a function that provides a whole column.
+
+##### custom value generator
+
+Generate column values using custom function available in your environment. Function should return a single value.
+
+Parameters:
+
+* `type: custom` - column type
+* `custom_generator` - name of the function that will provide values.
+* All parameters required by your custom function.
+
+Example:
+
+```r
+return_sample_paste <- function(vector_of_values) {
+  values <- sample(vector_of_values, 2)
+  paste(values, collapse = "_")
+}
+```
+
+```yaml
+data_frame:
+  columns:
+    custom_column:
+      type: custom
+      custom_generator: return_sample_paste
+      vector_of_values: ["a", "b", "c", "d"]
 ```
 
 ### Default size
