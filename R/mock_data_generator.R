@@ -36,7 +36,8 @@ MockDataGenerator <- R6::R6Class(
     #' @description
     #' Create a new MockDataGenerator object
     #' @param configuration list or path to yaml file with datasets configurations.
-    #'  Check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/docs/configuration.md}{configuration} for details.
+    #'  Check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/docs/configuration.md}{configuration}
+    #'  for details.
     #'  For a sample yaml check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/examples}{examples}.
     #' @return A new MockDataGenerator object
     initialize = function(configuration) {
@@ -72,7 +73,13 @@ MockDataGenerator <- R6::R6Class(
     get_all_data = function(refresh = FALSE, sizes = NULL) {
       data_names <- names(private$generators)
       if (length(sizes) > 1) {
-        if (length(sizes) != length(data_names)) stop(glue::glue("Wrong number of sizes. Provide a single integer or a vector of exactly {length(data_names)} integers."))
+        if (length(sizes) != length(data_names)) {
+          stop(
+            glue::glue(
+              "Wrong number of sizes. Provide a single integer or a vector of exactly {length(data_names)} integers."
+              )
+            )
+        }
         data <- purrr::map2(data_names, sizes, self$get_data, refresh = refresh)
       } else {
         data <- purrr::map(data_names, self$get_data, refresh = refresh, size = sizes)
