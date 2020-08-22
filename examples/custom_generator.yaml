@@ -4,3 +4,7 @@ data_frame:
       type: custom
       custom_generator: return_sample_paste
       vector_of_values: ["a", "b", "c", "d"]
+    second_custom_column:
+      type: custom_column
+      custom_column_generator: return_repeated_value
+      value: "Ask me about trilobites!"
