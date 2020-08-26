@@ -52,7 +52,7 @@ Get a dataset (if does not exist, generate it)
 \describe{
 \item{\code{data_name}}{string, data set name to retrieve}
 
-\item{\code{size}}{integer, size of dataset (if not generated before)}
+\item{\code{size}}{integer, size of dataset (if provided, will refresh dataset)}
 
 \item{\code{refresh}}{boolean, refresh existing data?}
 }

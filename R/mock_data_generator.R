@@ -50,14 +50,11 @@ MockDataGenerator <- R6::R6Class(
     #' @description
     #' Get a dataset (if does not exist, generate it)
     #' @param data_name string, data set name to retrieve
-    #' @param size integer, size of dataset (if not generated before)
+    #' @param size integer, size of dataset (if provided, will refresh dataset)
     #' @param refresh boolean, refresh existing data?
     #' @return mock dataset
     get_data = function(data_name, size = NULL, refresh = FALSE) {
-      if (!is.null(size) && isFALSE(refresh) && !is.null(private$data[[data_name]])) {
-        stop("You provided a new data size. If you want to regenerate data please add 'refresh = TRUE' argument.")
-      }
-      if (is.null(private$data[[data_name]]) || isTRUE(refresh)) {
+      if (is.null(private$data[[data_name]]) || isTRUE(refresh) || !is.null(size)) {
         size <- if (is.null(size)) eval(private$default_sizes[[data_name]]) else size
         if (test_function(size)) size <- size()
         private$generate_data(data_name, size = size)
