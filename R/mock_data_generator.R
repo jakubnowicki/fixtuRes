@@ -5,7 +5,7 @@
 #' @import R6
 #' @import glue
 #' @import yaml
-#' @importFrom checkmate test_string test_function
+#' @importFrom checkmate test_string test_function test_int
 #' @export
 MockDataGenerator <- R6::R6Class(
   classname = "MockDataGenerator",

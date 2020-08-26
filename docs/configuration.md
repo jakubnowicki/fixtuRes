@@ -262,4 +262,41 @@ data_frame:
 
 ### Default size
 
-__TODO__
+Data frame can have a default number of rows that will be returned if
+size argument is not provided. Default size can be one of:
+
+* not provided - generator will return a random number of rows (from 5 to 50)
+* integer - single value, number of rows
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    ...
+  default_size: 10
+```
+
+* random integer - you can provide arguments to `random_integer` function. Result can be a static value (if `static: TRUE` provided) or a random number generator. The first one will generate a number of rows just once ant that number will be used when data is refreshed (wihtout providing a specific size).
+
+Example:
+
+```yaml
+random_number_of_rows:
+  columns:
+    ...
+  default_size:
+    arguments:
+      min: 10
+      max: 20
+static_random_number_of_rows:
+  columns:
+    ...
+  default_size:
+    arguments:
+      min: 5
+      max: 10
+    static: TRUE
+```
+
+For sample yaml configuration check [this]("examples/default_size_examples.yaml").
