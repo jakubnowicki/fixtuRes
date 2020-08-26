@@ -7,9 +7,9 @@
 random_integer(min = 0, max = 999999)
 }
 \arguments{
-\item{min}{integer minimum}
+\item{min}{integer, minimum}
 
-\item{max}{integer maximum}
+\item{max}{integer, maximum}
 }
 \value{
 random integer

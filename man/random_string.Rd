@@ -4,13 +4,25 @@
 \alias{random_string}
 \title{Generate random string}
 \usage{
-random_string(length = NULL, pattern = "[A-Za-z0-9]")
+random_string(
+  length = NULL,
+  min_length = 1,
+  max_length = 15,
+  pattern = "[A-Za-z0-9]"
+)
 }
 \arguments{
-\item{length}{integer or NULL (default) string length.
+\item{length}{integer or NULL (default), output string length.
 If NULL, length will be random}
 
-\item{pattern}{string pattern for string to follow}
+\item{min_length}{integer, minimum length if length is random.
+Default: 1.}
+
+\item{max_length}{integer, maximum length if length is random.
+Default: 15.}
+
+\item{pattern}{string, pattern for string to follow.
+Check \code{\link[stringi]{stringi-search-charclass}} for details.}
 }
 \value{
 random string

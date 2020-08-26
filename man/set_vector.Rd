@@ -7,17 +7,17 @@
 set_vector(size, set = NULL, set_type = NULL, set_size = NULL, ...)
 }
 \arguments{
-\item{size}{integer vector length}
+\item{size}{integer, vector length}
 
 \item{set}{vector a set of values to pick from; default: NULL}
 
 \item{set_type}{string if set is NULL generate a random set of type
 ("integer", "string", "boolean", "numeric"); default: NULL}
 
-\item{set_size}{integer number of elements in random set; default: NULL}
+\item{set_size}{integer, number of elements in random set; default: NULL}
 
 \item{...}{additional arguments for random set generator.
-For details check \code{random_vector}}
+For details check \code{\link{random_vector}}}
 }
 \description{
 Generate a vector of a values from a set

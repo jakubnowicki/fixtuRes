@@ -5,6 +5,7 @@
 #' @import R6
 #' @import glue
 #' @import yaml
+#' @importFrom checkmate test_string test_function test_int
 #' @export
 MockDataGenerator <- R6::R6Class(
   classname = "MockDataGenerator",
@@ -34,9 +35,10 @@ MockDataGenerator <- R6::R6Class(
   public = list(
     #' @description
     #' Create a new MockDataGenerator object
-    #' @param configuration list or path to yaml file; list with datasets configurations.
-    #'  Check \code{random_data_frame} for configuration details.
-    #'  For a sample yaml check examples/simple.yaml
+    #' @param configuration list or path to yaml file with datasets configurations.
+    #'  Check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/docs/configuration.md}{configuration}
+    #'  for details.
+    #'  For a sample yaml check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/examples}{examples}.
     #' @return A new MockDataGenerator object
     initialize = function(configuration) {
       if (test_string(configuration)) {
@@ -47,12 +49,12 @@ MockDataGenerator <- R6::R6Class(
     },
     #' @description
     #' Get a dataset (if does not exist, generate it)
-    #' @param data_name string; data set name to retrieve
-    #' @param size integer; size of dataset (if not generated before)
-    #' @param refresh boolean; refresh existing data?
+    #' @param data_name string, data set name to retrieve
+    #' @param size integer, size of dataset (if provided, will refresh dataset)
+    #' @param refresh boolean, refresh existing data?
     #' @return mock dataset
     get_data = function(data_name, size = NULL, refresh = FALSE) {
-      if (is.null(private$data[[data_name]]) || isTRUE(refresh)) {
+      if (is.null(private$data[[data_name]]) || isTRUE(refresh) || !is.null(size)) {
         size <- if (is.null(size)) eval(private$default_sizes[[data_name]]) else size
         if (test_function(size)) size <- size()
         private$generate_data(data_name, size = size)
@@ -62,13 +64,19 @@ MockDataGenerator <- R6::R6Class(
     },
     #' @description
     #' Get all datasets
-    #' @param refresh boolean; refresh existing data?
-    #' @param sizes integer; or vector of integers with data sizes
+    #' @param refresh boolean, refresh existing data?
+    #' @param sizes integer, or vector of integers with data sizes
     #' @return list with all datasets
     get_all_data = function(refresh = FALSE, sizes = NULL) {
       data_names <- names(private$generators)
       if (length(sizes) > 1) {
-        if (length(sizes) != length(data_names)) stop(glue::glue("Wrong number of sizes. Provide a single integer or a vector of exactly {length(data_names)} integers."))
+        if (length(sizes) != length(data_names)) {
+          stop(
+            glue::glue(
+              "Wrong number of sizes. Provide a single integer or a vector of exactly {length(data_names)} integers."
+              )
+            )
+        }
         data <- purrr::map2(data_names, sizes, self$get_data, refresh = refresh)
       } else {
         data <- purrr::map(data_names, self$get_data, refresh = refresh, size = sizes)

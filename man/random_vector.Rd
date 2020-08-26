@@ -2,30 +2,30 @@
 % Please edit documentation in R/vectors.R
 \name{random_vector}
 \alias{random_vector}
-\title{Generate random vector of desired type}
+\title{Generate a random vector of desired type}
 \usage{
 random_vector(size, type, custom_generator = NULL, unique = FALSE, ...)
 }
 \arguments{
-\item{size}{integer vector length}
+\item{size}{integer, vector length}
 
 \item{type}{"integer", "string", "boolean" or "numeric" type of vector values.
 If custom generator provided, should be set to "custom".}
 
-\item{custom_generator}{function or string; custom value generator.
+\item{custom_generator}{function or string, custom value generator.
 Can be a function or a string with function name. Default: NULL}
 
-\item{unique}{boolean should the output contain only unique values}
+\item{unique}{boolean, should the output contain only unique values. Default: FALSE.}
 
 \item{...}{arguments passed to function responsible for generating values.
-Check \code{random_integer}, \code{random_string}, \code{random_boolean} and
-\code{random_numeric} for details}
+Check \code{\link{random_integer}}, \code{\link{random_string}}, \code{\link{random_boolean}}
+and \code{\link{random_numeric}} for details}
 }
 \value{
 vector of random values of chosen type
 }
 \description{
-Generate random vector of desired type
+Generate a random vector of desired type
 }
 \examples{
 random_vector(5, "boolean")

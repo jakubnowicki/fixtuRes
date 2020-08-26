@@ -1,0 +1,302 @@
+# Configuration
+
+Datasets configuration can be provided in a `yaml` file or as a nested list. Below you can find a detailed description of possible options.
+
+## Data frames in a dataset
+
+A single yaml file can include multiple data frames. Entry for each will be used as name of the data frame when it comes to generating data.
+
+```yaml
+first_data_frame:
+  ...
+second_data_frame:
+  ...
+third_data_frame:
+  ...
+```
+
+## Data frame configuration
+
+Data frame configuration includes two sections:
+
+1. `columns` - where you can describe columns of your data frame.
+2. `default_size` - optional value that describes default size of the data frame.
+
+### Columns
+
+Each column of your data frame should be described in a separate entry in
+columns section. Entry name will be used as column name.
+
+Currently there are three major types of columns implemented:
+
+1. Built-in basic columns (integer, numeric, string, boolean and set)
+2. Columns that use custom function to be generated.
+3. Columns calculated from other columns.
+
+Type of column is set by choosing a proper `type` value in column
+description. Check following sections for more details.
+
+The order of columns will be the same as the order of entries in the configuration.
+
+#### Built-in columns
+
+Basic column types. For an example yaml configuration check [this](../examples/built_in_columns.yaml)
+
+##### integer
+
+Random integers from a range
+
+Parameters:
+
+* `type: integer` - column type
+* `unique` (optional, default: FALSE) - boolean, should values be unique
+* `min` (optional, default: 0) - integer, minimum value to occur in the column.
+* `max` (optional, default: 999999) - integer, maximum value to occur in the column.
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    integer_column:
+      type: integer
+      min: 2
+      max: 10
+```
+
+##### numeric
+
+Random float numbers from a range
+
+Parameters:
+
+* `type: numeric` - column type
+* `unique` (optional, default: FALSE) - boolean, should values be unique
+* `min` (optional, default: 0) - numeric, minimum value to occur in the column.
+* `max` (optional, default: 999999) - numeric, maximum value to occur in the column.
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    numeric_column:
+      type: numeric
+      min: 2.12
+      max: 10.3
+```
+
+##### string
+
+Random string that follows given pattern
+
+Parameters:
+
+* `type: string` - column type
+* `unique` (optional, default: FALSE) - boolean, should values be unique
+* `length` (optional, default: NULL) - integer, string length. If NULL, string length will be random (see next parameters).
+* `min_length` (optional, default: 1) - integer, minimum length if length is random.
+* `max_length` (optional, default: 15) - integer, maximum length if length is random.
+* `pattern` (optional, default: "[A-Za-z0-9]") - string pattern, for details check [this](https://rdrr.io/cran/stringi/man/stringi-search-charclass.html).
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    string_column:
+      type: string
+      length: 3
+      pattern: "[ACGT]"
+```
+
+##### boolean
+
+Random boolean
+
+Parameters:
+
+* `type: boolean` - column type
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    boolean_column:
+      type: boolean
+```
+
+##### set
+
+Column with elements from a set
+
+Parameters:
+* `type: set` - column type
+* `set` (optional, default: NULL) - set of possible values, if NULL, will use a random set.
+* `set_type` (optional, default: NULL) - type of random set, can be "integer", "numeric" or "string".
+* `set_size` (optional, default: NULL) - integer, size of random set
+* If set is random, you can add parameters required by type of set (eg, min, max, pattern, etc.)
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    set_column_one:
+      type: set
+      set: ["aardvark", "elephant", "hedgehog"]
+    set_column_two:
+      type: set
+      set_type: integer
+      set_size: 3
+      min: 2
+      max: 10
+```
+
+#### Custom columns
+
+There are two levels of custom generator that can be used.
+You can provide a function that generates a single value or
+a function that provides a whole column. For examples check
+[this configuration](../examples/custom_columns.yaml) and
+[this R script with functions](../examples/additional_functions.R).
+
+##### custom value generator
+
+Generate column values using custom function available in your environment. Function should return a single value.
+
+Parameters:
+
+* `type: custom` - column type
+* `custom_generator` - name of the function that will provide values.
+* All parameters required by your custom function.
+
+Example:
+
+```r
+return_sample_paste <- function(vector_of_values) {
+  values <- sample(vector_of_values, 2)
+  paste(values, collapse = "_")
+}
+```
+
+```yaml
+data_frame:
+  columns:
+    custom_column:
+      type: custom
+      custom_generator: return_sample_paste
+      vector_of_values: ["a", "b", "c", "d"]
+```
+
+##### custom column generator
+
+Generate column using custom function available in your environment.
+Function should accept argument `size` and return a vector of length equal to it.
+
+Parameters:
+
+* `type: custom_column` - column type
+* `custom_column_generator` - name of the function that will generate column.
+* All parameters required by your custom function except `size`.
+
+Example:
+
+```r
+return_repeated_value <- function(size, value) {
+  rep(value, times = size)
+}
+```
+
+```yaml
+data_frame:
+  columns:
+    custom_column:
+      type: custom_column
+      custom_column_generator: return_repeated_value
+      value: "Ask me about trilobites!"
+```
+
+#### Calculated columns
+
+Calculate columns that depend on other columns. For examples check
+[this configuration](../examples/calculated_columns.yaml) and
+[this R script with functions](../examples/additional_functions.R).
+
+Parameters:
+
+* `type: calculated` - column type
+* `formula` - calculation that has to be performed to obtain column
+
+In general, formula can be a simple expression or a call of more complex
+function. In both cases formula has to include names of the columns required for the calculations. When using a function, make sure that
+it returns a vector of the same size as inputs.
+
+Example:
+
+```r
+check_column <- function(column) {
+  purrr::map_lgl(column, ~.x >= 10)
+}
+```
+
+```yaml
+data_frame:
+  columns:
+    basic_column:
+      type: integer
+      min: 1
+      max: 10
+    second_basic_column:
+      type: integer
+      min: 1
+      max: 10
+    calculated_column:
+      type: calculated
+      formula: basic_column + second_basic_column
+    second_calculated_column:
+      type: calculated
+      formula: check_column(calculated_column)
+```
+
+### Default size
+
+Data frame can have a default number of rows that will be returned if
+size argument is not provided. Default size can be one of:
+
+* not provided - generator will return a random number of rows (from 5 to 50)
+* integer - single value, number of rows
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    ...
+  default_size: 10
+```
+
+* random integer - you can provide arguments to `random_integer` function. Result can be a static value (if `static: TRUE` provided) or a random number generator. The first one will generate a number of rows just once ant that number will be used when data is refreshed (wihtout providing a specific size).
+
+Example:
+
+```yaml
+random_number_of_rows:
+  columns:
+    ...
+  default_size:
+    arguments:
+      min: 10
+      max: 20
+static_random_number_of_rows:
+  columns:
+    ...
+  default_size:
+    arguments:
+      min: 5
+      max: 10
+    static: TRUE
+```
+
+For sample yaml configuration check [this](../examples/default_size_examples.yaml).

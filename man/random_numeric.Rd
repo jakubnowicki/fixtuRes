@@ -7,9 +7,9 @@
 random_numeric(min = 0, max = 999999)
 }
 \arguments{
-\item{min}{numeric minimum}
+\item{min}{numeric, minimum}
 
-\item{max}{numeric maximum}
+\item{max}{numeric, maximum}
 }
 \value{
 random numeric

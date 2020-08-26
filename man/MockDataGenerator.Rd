@@ -27,9 +27,10 @@ Create a new MockDataGenerator object
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{configuration}}{list or path to yaml file; list with datasets configurations.
-Check \code{random_data_frame} for configuration details.
-For a sample yaml check examples/simple.yaml}
+\item{\code{configuration}}{list or path to yaml file with datasets configurations.
+Check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/docs/configuration.md}{configuration}
+for details.
+For a sample yaml check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/examples}{examples}.}
 }
 \if{html}{\out{</div>}}
 }
@@ -49,11 +50,11 @@ Get a dataset (if does not exist, generate it)
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{data_name}}{string; data set name to retrieve}
+\item{\code{data_name}}{string, data set name to retrieve}
 
-\item{\code{size}}{integer; size of dataset (if not generated before)}
+\item{\code{size}}{integer, size of dataset (if provided, will refresh dataset)}
 
-\item{\code{refresh}}{boolean; refresh existing data?}
+\item{\code{refresh}}{boolean, refresh existing data?}
 }
 \if{html}{\out{</div>}}
 }
@@ -73,9 +74,9 @@ Get all datasets
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{refresh}}{boolean; refresh existing data?}
+\item{\code{refresh}}{boolean, refresh existing data?}
 
-\item{\code{sizes}}{integer; or vector of integers with data sizes}
+\item{\code{sizes}}{integer, or vector of integers with data sizes}
 }
 \if{html}{\out{</div>}}
 }
