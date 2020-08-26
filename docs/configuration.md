@@ -40,7 +40,7 @@ The order of columns will be the same as the order of entries in the configurati
 
 #### Built-in columns
 
-Basic column types. For an example yaml configuration check [this](../examples/built-in_columns.yaml)
+Basic column types. For an example yaml configuration check [this](../examples/built_in_columns.yaml)
 
 ##### integer
 
