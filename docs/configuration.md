@@ -40,7 +40,7 @@ The order of columns will be the same as the order of entries in the configurati
 
 #### Built-in columns
 
-Basic column types. For an example yaml configuration check [this]("examples/built-in_columns.yaml")
+Basic column types. For an example yaml configuration check [this](../examples/built-in_columns.yaml)
 
 ##### integer
 
@@ -159,8 +159,8 @@ data_frame:
 There are two levels of custom generator that can be used.
 You can provide a function that generates a single value or
 a function that provides a whole column. For examples check
-[this configuration]("examples/custom_columns.yaml") and
-[this R script with functions]("examples/additional_functions.R").
+[this configuration](../examples/custom_columns.yaml) and
+[this R script with functions](../examples/additional_functions.R).
 
 ##### custom value generator
 
@@ -221,8 +221,8 @@ data_frame:
 #### Calculated columns
 
 Calculate columns that depend on other columns. For examples check
-[this configuration]("examples/calculated_columns.yaml") and
-[this R script with functions]("examples/additional_functions.R").
+[this configuration](../examples/calculated_columns.yaml) and
+[this R script with functions](../examples/additional_functions.R).
 
 Parameters:
 
@@ -299,4 +299,4 @@ static_random_number_of_rows:
     static: TRUE
 ```
 
-For sample yaml configuration check [this]("examples/default_size_examples.yaml").
+For sample yaml configuration check [this](../examples/default_size_examples.yaml).
