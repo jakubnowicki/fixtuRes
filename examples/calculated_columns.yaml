@@ -1,0 +1,16 @@
+data_frame:
+  columns:
+    basic_column:
+      type: integer
+      min: 1
+      max: 10
+    second_basic_column:
+      type: integer
+      min: 1
+      max: 10
+    calculated_column:
+      type: calculated
+      formula: basic_column + second_basic_column
+    second_calculated_column:
+      type: calculated
+      formula: check_column(calculated_column)

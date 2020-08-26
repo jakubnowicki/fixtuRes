@@ -36,7 +36,11 @@ Currently there are three major types of columns implemented:
 Type of column is set by choosing a proper `type` value in column
 description. Check following sections for more details.
 
+The order of columns will be the same as the order of entries in the configuration.
+
 #### Built-in columns
+
+Basic column types. For an example yaml configuration check [this]("examples/built-in_columns.yaml")
 
 ##### integer
 
@@ -154,7 +158,9 @@ data_frame:
 
 There are two levels of custom generator that can be used.
 You can provide a function that generates a single value or
-a function that provides a whole column.
+a function that provides a whole column. For examples check
+[this configuration]("examples/custom_columns.yaml") and
+[this R script with functions]("examples/additional_functions.R").
 
 ##### custom value generator
 
@@ -210,6 +216,48 @@ data_frame:
       type: custom_column
       custom_column_generator: return_repeated_value
       value: "Ask me about trilobites!"
+```
+
+#### Calculated columns
+
+Calculate columns that depend on other columns. For examples check
+[this configuration]("examples/calculated_columns.yaml") and
+[this R script with functions]("examples/additional_functions.R").
+
+Parameters:
+
+* `type: calculated` - column type
+* `formula` - calculation that has to be performed to obtain column
+
+In general, formula can be a simple expression or a call of more complex
+function. In both cases formula has to include names of the columns required for the calculations. When using a function, make sure that
+it returns a vector of the same size as inputs.
+
+Example:
+
+```r
+check_column <- function(column) {
+  purrr::map_lgl(column, ~.x >= 10)
+}
+```
+
+```yaml
+data_frame:
+  columns:
+    basic_column:
+      type: integer
+      min: 1
+      max: 10
+    second_basic_column:
+      type: integer
+      min: 1
+      max: 10
+    calculated_column:
+      type: calculated
+      formula: basic_column + second_basic_column
+    second_calculated_column:
+      type: calculated
+      formula: check_column(calculated_column)
 ```
 
 ### Default size

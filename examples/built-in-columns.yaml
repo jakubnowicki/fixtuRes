@@ -1,0 +1,25 @@
+data_frame:
+  columns:
+    integer_column:
+      type: integer
+      min: 2
+      max: 10
+    numeric_column:
+      type: numeric
+      min: 2.12
+      max: 10.3
+    string_column:
+      type: string
+      length: 3
+      pattern: "[ACGT]"
+    boolean_column:
+      type: boolean
+    set_column_one:
+      type: set
+      set: ["aardvark", "elephant", "hedgehog"]
+    set_column_two:
+      type: set
+      set_type: integer
+      set_size: 3
+      min: 2
+      max: 10
