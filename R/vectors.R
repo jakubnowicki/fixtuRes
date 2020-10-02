@@ -97,3 +97,21 @@ set_vector <- function(size, set = NULL, set_type = NULL, set_size = NULL, ...) 
 
   return(replicate(size, random_from_set(set)))
 }
+
+#' Wrapper that allows generating a special type vector
+#'
+#' @param size integer, vector length
+#' @param type type of vector, one of: "id"
+#' @param ... additional arguments for vector function
+#'
+#' @export
+#'
+#' @examples
+#' special_vector(10, "id", start = 3)
+special_vector <- function(size, type, ...) {
+  args <- list(size, ...)
+  switch(
+    type,
+    id = do.call(id_vector, args)
+  )
+}

@@ -61,9 +61,15 @@ create_column <- function(size, type, custom_column_generator = NULL, ...) {
     custom_column_generator <- get(custom_column_generator)
   }
 
+  if (type %in% c("id")) {
+    special_type <- type
+    type <- "special_vector"
+  }
+
   generator <- switch(type,
     set = do.call(set_vector, list(size = size, ...)),
     custom_column = do.call(custom_column_generator, list(size = size, ...)),
+    special_vector = do.call(special_vector, list(type = special_type, size = size, ...)),
     do.call(random_vector, list(type = type, size = size, ...))
   )
 
