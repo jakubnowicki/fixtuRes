@@ -1,7 +1,7 @@
 Package: fixtuRes
 Type: Package
 Title: Generate Mock Data
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Jakub", "Nowicki", email = "q.nowicki@gmail.com",
   role = c("aut", "cre"))
 Description: Generate mock data for testing.
