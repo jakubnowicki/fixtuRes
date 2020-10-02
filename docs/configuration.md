@@ -132,6 +132,7 @@ data_frame:
 Column with elements from a set
 
 Parameters:
+
 * `type: set` - column type
 * `set` (optional, default: NULL) - set of possible values, if NULL, will use a random set.
 * `set_type` (optional, default: NULL) - type of random set, can be "integer", "numeric" or "string".
@@ -152,6 +153,25 @@ data_frame:
       set_size: 3
       min: 2
       max: 10
+```
+
+##### id
+
+Id column - ordered integer that starts from defined value (default: 1).
+
+Parameters:
+
+* `type: id` - column type
+* `start` (optional, default: 1) - first value
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    id_column:
+      type: id
+      start: 2
 ```
 
 #### Custom columns

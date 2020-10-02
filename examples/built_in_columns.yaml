@@ -23,3 +23,6 @@ data_frame:
       set_size: 3
       min: 2
       max: 10
+    id_column:
+      type: id
+      start: 2
