@@ -1,0 +1,2 @@
+"rnorm": ["normal", "gaussian", "laplace-gauss"]
+"rpois": ["poisson"]
