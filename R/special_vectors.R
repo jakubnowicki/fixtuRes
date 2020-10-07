@@ -14,7 +14,10 @@ id_vector <- function(size, start = 1) {
 #' vector of values that follow specified distribution
 #'
 #' @param size integer, size of the output vector
-#' @param distribution_type character, type of distribution
+#' @param distribution_type character, type of distribution. You can use
+#'  direct function name, eg. "rnorm" or a regular name (eg. "normal", "gaussian").
+#'  All standard distridutions from {stats} package are covered. For a list
+#'  check \link[stats]{Distributions}
 #' @param ... arguments required by the distribution function
 #'
 #' @export
