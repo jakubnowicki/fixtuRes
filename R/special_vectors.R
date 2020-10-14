@@ -24,10 +24,10 @@ id_vector <- function(size, start = 1) {
 #'
 #' @examples
 #' distribution_vector(10, "normal", mean = 2, sd = 0.5)
-distribution_vector <- function(size, distribution_type, ...) {
+distribution_vector <- function(size, distribution_type, distribution_arguments = list()) {
   distribution_function_name <- convert_distribution_name_to_function(distribution_type)
 
-  args <- list(n = size, ...)
+  args <- c(n = size, distribution_arguments)
 
   do.call(distribution_function_name, args)
 }

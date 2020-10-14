@@ -50,27 +50,23 @@ random_data_frame <- function(configuration, size) {
 }
 
 # Wrapper that allows passing additional external arguments (eg. size)
-create_column_wrapper <- function(configuration, ...) {
-  args <- c(configuration, list(...))
+create_column_wrapper <- function(configuration, size) {
+  args <- list(configuration = configuration, size = size)
   return(do.call(create_column, args))
 }
 
 # Create data frame column
-create_column <- function(size, type, custom_column_generator = NULL, ...) {
-  if (type == "custom_column" && is.character(custom_column_generator)) {
-    custom_column_generator <- get(custom_column_generator)
+create_column <- function(size, configuration) {
+  if (configuration$type %in% c("id", "distribution")) {
+    special_type <- configuration$type
+    configuration$type <- "special_vector"
   }
 
-  if (type %in% c("id")) {
-    special_type <- type
-    type <- "special_vector"
-  }
-
-  generator <- switch(type,
-    set = do.call(set_vector, list(size = size, ...)),
-    custom_column = do.call(custom_column_generator, list(size = size, ...)),
-    special_vector = do.call(special_vector, list(type = special_type, size = size, ...)),
-    do.call(random_vector, list(type = type, size = size, ...))
+  generator <- switch(configuration$type,
+    set = do.call(set_vector, c(size = size, configuration[names(configuration) != "type"])),
+    custom_column = do.call(configuration$custom_column_generator, c(size = size, configuration[!(names(configuration) %in% c("type", "custom_column_generator"))])),
+    special_vector = do.call(special_vector, list(type = special_type, size = size, configuration = configuration[names(configuration) != "type"])),
+    do.call(random_vector, c(type = configuration$type, size = size, configuration[names(configuration) != "type"]))
   )
 
   return(generator)

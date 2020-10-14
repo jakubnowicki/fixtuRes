@@ -1,0 +1,13 @@
+data_frame:
+  columns:
+    id:
+      type: id
+    normal_distribution:
+      type: distribution
+      distribution_type: Gaussian
+      mean: 2
+    bernoulli_distribution:
+      type: distribution
+      distribution_type: binomial
+      size: 1
+      prob: 0.5

@@ -108,10 +108,17 @@ set_vector <- function(size, set = NULL, set_type = NULL, set_size = NULL, ...) 
 #'
 #' @examples
 #' special_vector(10, "id", start = 3)
-special_vector <- function(size, type, ...) {
-  args <- list(size, ...)
+special_vector <- function(size, type, configuration) {
   switch(
     type,
-    id = do.call(id_vector, args)
+    id = do.call(id_vector, c(size, configuration)),
+    distribution = do.call(
+      distribution_vector,
+      list(
+        size,
+        distribution_type = configuration$distribution_type,
+        distribution_arguments = configuration[names(configuration) != "distribution_type"]
+      )
+    )
   )
 }
