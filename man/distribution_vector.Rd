@@ -4,7 +4,7 @@
 \alias{distribution_vector}
 \title{vector of values that follow specified distribution}
 \usage{
-distribution_vector(size, distribution_type, ...)
+distribution_vector(size, distribution_type, distribution_arguments = list())
 }
 \arguments{
 \item{size}{integer, size of the output vector}
@@ -14,11 +14,11 @@ direct function name, eg. "rnorm" or a regular name (eg. "normal", "gaussian").
 All standard distridutions from {stats} package are covered. For a list
 check \link[stats]{Distributions}}
 
-\item{...}{arguments required by the distribution function}
+\item{distribution_arguments}{list of arguments required by the distribution function}
 }
 \description{
 vector of values that follow specified distribution
 }
 \examples{
-distribution_vector(10, "normal", mean = 2, sd = 0.5)
+distribution_vector(10, "normal", list(mean = 2, sd = 0.5))
 }

@@ -1,13 +1,14 @@
 library(testthat)
 library(checkmate)
-
-source("../../examples/additional_functions.R")
+library(fixtuRes)
 
 context("configuration examples")
 
+source("additional_functions.R")
+
 test_that("basic_example configuration returns a valid data frame", {
   # Given
-  mock_generator <- MockDataGenerator$new("../../examples/basic_example.yaml")
+  mock_generator <- MockDataGenerator$new("basic_example.yaml")
 
   # Then
   expect_data_frame(mock_generator$get_all_data()[[1]])
@@ -15,7 +16,7 @@ test_that("basic_example configuration returns a valid data frame", {
 
 test_that("built_in_columns configuration returns a valid data frame", {
   # Given
-  mock_generator <- MockDataGenerator$new("../../examples/built_in_columns.yaml")
+  mock_generator <- MockDataGenerator$new("built_in_columns.yaml")
 
   # Then
   expect_data_frame(mock_generator$get_all_data()[[1]])
@@ -23,7 +24,7 @@ test_that("built_in_columns configuration returns a valid data frame", {
 
 test_that("calculated_columns configuration returns a valid data frame", {
   # Given
-  mock_generator <- MockDataGenerator$new("../../examples/calculated_columns.yaml")
+  mock_generator <- MockDataGenerator$new("calculated_columns.yaml")
 
   # Then
   expect_data_frame(mock_generator$get_all_data()[[1]])
@@ -31,7 +32,7 @@ test_that("calculated_columns configuration returns a valid data frame", {
 
 test_that("custom_columns configuration returns a valid data frame", {
   # Given
-  mock_generator <- MockDataGenerator$new("../../examples/custom_columns.yaml")
+  mock_generator <- MockDataGenerator$new("custom_columns.yaml")
 
   # Then
   expect_data_frame(mock_generator$get_all_data()[[1]])
@@ -39,7 +40,8 @@ test_that("custom_columns configuration returns a valid data frame", {
 
 test_that("default_size_examples configuration returns a valid data frame", {
   # Given
-  mock_generator <- MockDataGenerator$new("../../examples/default_size_examples.yaml")
+  print(getwd)
+  mock_generator <- MockDataGenerator$new("default_size_examples.yaml")
 
   # Then
   expect_data_frame(mock_generator$get_all_data()[[1]])
@@ -50,7 +52,7 @@ test_that("default_size_examples configuration returns a valid data frame", {
 
 test_that("special_types configuration returns a valid data frame", {
   # Given
-  mock_generator <- MockDataGenerator$new("../../examples/special_types.yaml")
+  mock_generator <- MockDataGenerator$new("special_types.yaml")
 
   # Then
   expect_data_frame(mock_generator$get_all_data()[[1]])

@@ -64,8 +64,14 @@ create_column <- function(size, configuration) {
 
   generator <- switch(configuration$type,
     set = do.call(set_vector, c(size = size, configuration[names(configuration) != "type"])),
-    custom_column = do.call(configuration$custom_column_generator, c(size = size, configuration[!(names(configuration) %in% c("type", "custom_column_generator"))])),
-    special_vector = do.call(special_vector, list(type = special_type, size = size, configuration = configuration[names(configuration) != "type"])),
+    custom_column = do.call(
+      configuration$custom_column_generator,
+      c(size = size, configuration[!(names(configuration) %in% c("type", "custom_column_generator"))])
+    ),
+    special_vector = do.call(
+      special_vector,
+      list(type = special_type, size = size, configuration = configuration[names(configuration) != "type"])
+    ),
     do.call(random_vector, c(type = configuration$type, size = size, configuration[names(configuration) != "type"]))
   )
 

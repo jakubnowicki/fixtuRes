@@ -18,12 +18,13 @@ id_vector <- function(size, start = 1) {
 #'  direct function name, eg. "rnorm" or a regular name (eg. "normal", "gaussian").
 #'  All standard distridutions from {stats} package are covered. For a list
 #'  check \link[stats]{Distributions}
-#' @param ... arguments required by the distribution function
+#' @param distribution_arguments list of arguments required by the distribution function
 #'
+#' @import stats
 #' @export
 #'
 #' @examples
-#' distribution_vector(10, "normal", mean = 2, sd = 0.5)
+#' distribution_vector(10, "normal", list(mean = 2, sd = 0.5))
 distribution_vector <- function(size, distribution_type, distribution_arguments = list()) {
   distribution_function_name <- convert_distribution_name_to_function(distribution_type)
 
