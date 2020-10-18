@@ -1,0 +1,24 @@
+data_frame:
+  columns:
+    id:
+      type: id
+    normal_distribution:
+      type: distribution
+      distribution_type: Gaussian
+    bernoulli_distribution:
+      type: distribution
+      distribution_type: binomial
+      size: 1
+      prob: 0.5
+    poisson_distribution:
+      type: distribution
+      distribution_type: Poisson
+      lambda: 3
+    beta_distribution:
+      type: distribution
+      distribution_type: rbeta
+      shape1: 20
+      shape2: 30
+    cauchy_distribution:
+      type: distribution
+      distribution_type: Cauchy-Lorentz

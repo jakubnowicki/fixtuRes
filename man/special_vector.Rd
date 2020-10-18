@@ -2,20 +2,20 @@
 % Please edit documentation in R/vectors.R
 \name{special_vector}
 \alias{special_vector}
-\title{Wrapper that allows generating a special type vector}
+\title{Wrapper that allows generating a special type vectors}
 \usage{
-special_vector(size, type, ...)
+special_vector(size, type, configuration)
 }
 \arguments{
 \item{size}{integer, vector length}
 
-\item{type}{type of vector, one of: "id"}
+\item{type}{type of vector, one of: "id", "distribution"}
 
-\item{...}{additional arguments for vector function}
+\item{configuration}{list of arguments required by vector function}
 }
 \description{
-Wrapper that allows generating a special type vector
+Wrapper that allows generating a special type vectors
 }
 \examples{
-special_vector(10, "id", start = 3)
+special_vector(10, "id", list(start = 3))
 }
