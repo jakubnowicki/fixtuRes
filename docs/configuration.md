@@ -155,6 +155,29 @@ data_frame:
       max: 10
 ```
 
+##### date
+
+Column with dates
+
+Parameters:
+
+* `type: date` - column type
+* `min_date` - begining of the time interval to sample from
+* `max_date` - end of the time interval to sample from
+* `format` (optional, default: NULL) - date format, for details check [this](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strptime)
+* `tz` (optional, default: NULL) - time zone name
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    date_column:
+      type: date
+      min_date: 2012-03-31
+      max_date: 2015-12-23
+```
+
 #### Special columns
 
 Special predefined types of columns. For an example yaml configuration check [this](../examples/special_types.yaml)

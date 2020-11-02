@@ -23,6 +23,7 @@ data_frame:
       set_size: 3
       min: 2
       max: 10
-    id_column:
-      type: id
-      start: 2
+    date_column:
+      type: date
+      min_date: 2012-03-31
+      max_date: 2015-12-23
