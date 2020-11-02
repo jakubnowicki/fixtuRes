@@ -85,10 +85,11 @@ random_from_set <- function(set) {
 #' @examples
 #' random_date("2012-12-04", "2020-10-31")
 random_date <- function(min_date, max_date, format = NULL, tz = NULL) {
-  as_date(
-    sample(
-      as_date(min_date, format = format, tz = tz):as_date(max_date, format = format, tz = tz),
-      1
-    )
+  random_date_vector(
+    size = 1,
+    min_date = min_date,
+    max_date = max_date,
+    format = format,
+    tz = tz
   )
 }

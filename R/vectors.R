@@ -122,3 +122,26 @@ special_vector <- function(size, type, configuration) {
     )
   )
 }
+
+#' Get random date vector from an interval
+#'
+#' @param size integer, vector length
+#' @param min_date character or date, begining of the time interval to sample from
+#' @param max_date character or date, ending of the time interval to sample from
+#' @param format character, check \code{\link[base]{strptime}} for details
+#' @param tz character, time zone name
+#' @param unique boolean, should the output be unique?
+#' @export
+#'
+#' @importFrom lubridate as_date
+#' @examples
+#' random_date_vector(12, "2012-12-04", "2020-10-31")
+random_date_vector <- function(size, min_date, max_date, format = NULL, tz = NULL, unique = FALSE) {
+  as_date(
+    sample(
+      as_date(min_date, format = format, tz = tz):as_date(max_date, format = format, tz = tz),
+      size,
+      replace = !unique
+    )
+  )
+}
