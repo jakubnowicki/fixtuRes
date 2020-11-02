@@ -9,7 +9,7 @@ random_vector(size, type, custom_generator = NULL, unique = FALSE, ...)
 \arguments{
 \item{size}{integer, vector length}
 
-\item{type}{"integer", "string", "boolean" or "numeric" type of vector values.
+\item{type}{"integer", "string", "boolean", "date" or "numeric" type of vector values.
 If custom generator provided, should be set to "custom".}
 
 \item{custom_generator}{function or string, custom value generator.
