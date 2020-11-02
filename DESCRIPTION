@@ -15,7 +15,8 @@ Imports:
   purrr,
   R6,
   glue,
-  yaml
+  yaml,
+  lubridate
 Suggests:
   testthat,
   lintr

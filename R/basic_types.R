@@ -71,3 +71,24 @@ random_numeric <- function(min = 0, max = 999999) {
 random_from_set <- function(set) {
   sample(set, 1)
 }
+
+
+#' Get random date from an interval
+#'
+#' @param min_date character or date, begining of the time interval to sample from
+#' @param max_date character or date, ending of the time interval to sample from
+#' @param format character, check \code{\link[base]{strptime}} for details
+#' @param tz character, time zone name
+#' @export
+#'
+#' @importFrom lubridate as_date
+#' @examples
+#' random_date("2012-12-04", "2020-10-31")
+random_date <- function(min_date, max_date, format = NULL, tz = NULL) {
+  as_date(
+    sample(
+      as_date(min_date, format = format, tz = tz):as_date(max_date, format = format, tz = tz),
+      1
+    )
+  )
+}
