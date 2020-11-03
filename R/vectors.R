@@ -177,11 +177,11 @@ random_time_vector <- function(size,
     hours = hours
   )
 
-  period_extraction_function <- switch(
+  resolution_coefficient <- switch(
     resolution,
-    seconds = seconds,
-    minutes = minute,
-    hours = hour
+    seconds = 1,
+    minutes = 60,
+    hours = 3600
   )
 
   differences_conversion_function <- switch(
@@ -191,7 +191,7 @@ random_time_vector <- function(size,
     hours = hours
   )
 
-  available_period <- period_extraction_function(conversion_function(max_time) - conversion_function(min_time))
+  available_period <- period_to_seconds(conversion_function(max_time) - conversion_function(min_time))/resolution_coefficient
 
   time_differences <- sample(1:as.numeric(available_period), size, replace = !unique)
 
