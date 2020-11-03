@@ -132,7 +132,7 @@ special_vector <- function(size, type, configuration) {
 #' Get random date vector from an interval
 #'
 #' @param size integer, vector length
-#' @param min_date character or date, begining of the time interval to sample from
+#' @param min_date character or date, beginning of the time interval to sample from
 #' @param max_date character or date, ending of the time interval to sample from
 #' @param format character, check \code{\link[base]{strptime}} for details
 #' @param tz character, time zone name

@@ -75,7 +75,7 @@ random_from_set <- function(set) {
 
 #' Get random date from an interval
 #'
-#' @param min_date character or date, begining of the time interval to sample from
+#' @param min_date character or date, beginning of the time interval to sample from
 #' @param max_date character or date, ending of the time interval to sample from
 #' @param format character, check \code{\link[base]{strptime}} for details
 #' @param tz character, time zone name

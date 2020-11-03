@@ -162,7 +162,7 @@ Column with dates
 Parameters:
 
 * `type: date` - column type
-* `min_date` - begining of the time interval to sample from
+* `min_date` - beginning of the time interval to sample from
 * `max_date` - end of the time interval to sample from
 * `format` (optional, default: NULL) - date format, for details check [this](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strptime)
 * `tz` (optional, default: NULL) - time zone name
