@@ -27,3 +27,8 @@ data_frame:
       type: date
       min_date: 2012-03-31
       max_date: 2015-12-23
+    time_column:
+      type: time
+      min_time: "10:00"
+      max_time: "18:00"
+      resolution: minutes
