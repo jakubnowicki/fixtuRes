@@ -93,3 +93,21 @@ random_date <- function(min_date, max_date, format = NULL, tz = NULL) {
     tz = tz
   )
 }
+
+#' Get random time from an interval
+#'
+#' @param min_time character, beginning of the time interval to sample from
+#' @param max_time character, ending of the time interval to sample from
+#' @param resolution character, one of "seconds", "minutes", "hours", time resolution
+#' @export
+#'
+#' @examples
+#' random_time("12:23:00", "15:48:32")
+random_time <- function(min_time = "00:00:00", max_time = "23:59:59", resolution = "seconds") {
+  random_time_vector(
+    size = 1,
+    min_time = min_time,
+    max_time = max_time,
+    resolution = resolution
+  )
+}
