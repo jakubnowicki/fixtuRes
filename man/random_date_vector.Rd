@@ -16,7 +16,7 @@ random_date_vector(
 \arguments{
 \item{size}{integer, vector length}
 
-\item{min_date}{character or date, begining of the time interval to sample from}
+\item{min_date}{character or date, beginning of the time interval to sample from}
 
 \item{max_date}{character or date, ending of the time interval to sample from}
 

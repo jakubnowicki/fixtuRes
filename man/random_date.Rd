@@ -7,7 +7,7 @@
 random_date(min_date, max_date, format = NULL, tz = NULL)
 }
 \arguments{
-\item{min_date}{character or date, begining of the time interval to sample from}
+\item{min_date}{character or date, beginning of the time interval to sample from}
 
 \item{max_date}{character or date, ending of the time interval to sample from}
 

@@ -151,3 +151,50 @@ random_date_vector <- function(size, min_date, max_date, format = NULL, tz = NUL
     )
   )
 }
+
+#' Get random time vector from an interval
+#'
+#' @param size integer, vector length
+#' @param min_time character, beginning of the time interval to sample from
+#' @param max_time character, ending of the time interval to sample from
+#' @param resolution character, one of "seconds", "minutes", "hours", time resolution
+#' @param unique boolean, should the output be unique?
+#' @export
+#'
+#' @importFrom lubridate hms hm hours hour minutes minute seconds seconds_to_period
+#' @importFrom purrr `%>%` map reduce
+#' @examples
+#' random_time_vector(12, "12:23:00", "15:48:32")
+random_time_vector <- function(size,
+                               min_time = "00:00:00",
+                               max_time = "23:59:59",
+                               resolution = "seconds",
+                               unique = FALSE) {
+  conversion_function <- switch(
+    resolution,
+    seconds = hms,
+    minutes = hm,
+    hours = hours
+  )
+
+  period_extraction_function <- switch(
+    resolution,
+    seconds = seconds,
+    minutes = minute,
+    hours = hour
+  )
+
+  differences_conversion_function <- switch(
+    resolution,
+    seconds = identity,
+    minutes = minutes,
+    hours = hours
+  )
+
+  available_period <- period_extraction_function(conversion_function(max_time) - conversion_function(min_time))
+
+  time_differences <- sample(1:as.numeric(available_period), size, replace = !unique)
+
+  map(time_differences, ~ conversion_function(min_time) + seconds_to_period(differences_conversion_function(.x))) %>%
+    reduce(c)
+}
