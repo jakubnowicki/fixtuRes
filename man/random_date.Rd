@@ -4,7 +4,7 @@
 \alias{random_date}
 \title{Get random date from an interval}
 \usage{
-random_date(min_date, max_date, format = NULL, tz = NULL)
+random_date(min_date, max_date, format = NULL)
 }
 \arguments{
 \item{min_date}{character or date, beginning of the time interval to sample from}
@@ -12,8 +12,6 @@ random_date(min_date, max_date, format = NULL, tz = NULL)
 \item{max_date}{character or date, ending of the time interval to sample from}
 
 \item{format}{character, check \code{\link[base]{strptime}} for details}
-
-\item{tz}{character, time zone name}
 }
 \description{
 Get random date from an interval

@@ -4,14 +4,7 @@
 \alias{random_date_vector}
 \title{Get random date vector from an interval}
 \usage{
-random_date_vector(
-  size,
-  min_date,
-  max_date,
-  format = NULL,
-  tz = NULL,
-  unique = FALSE
-)
+random_date_vector(size, min_date, max_date, format = NULL, unique = FALSE)
 }
 \arguments{
 \item{size}{integer, vector length}
@@ -21,8 +14,6 @@ random_date_vector(
 \item{max_date}{character or date, ending of the time interval to sample from}
 
 \item{format}{character, check \code{\link[base]{strptime}} for details}
-
-\item{tz}{character, time zone name}
 
 \item{unique}{boolean, should the output be unique?}
 }

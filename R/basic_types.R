@@ -78,19 +78,17 @@ random_from_set <- function(set) {
 #' @param min_date character or date, beginning of the time interval to sample from
 #' @param max_date character or date, ending of the time interval to sample from
 #' @param format character, check \code{\link[base]{strptime}} for details
-#' @param tz character, time zone name
 #' @export
 #'
 #' @importFrom lubridate as_date
 #' @examples
 #' random_date("2012-12-04", "2020-10-31")
-random_date <- function(min_date, max_date, format = NULL, tz = NULL) {
+random_date <- function(min_date, max_date, format = NULL) {
   random_date_vector(
     size = 1,
     min_date = min_date,
     max_date = max_date,
-    format = format,
-    tz = tz
+    format = format
   )
 }
 
