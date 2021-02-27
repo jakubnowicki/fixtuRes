@@ -14,7 +14,8 @@ replicate_unique <- function(size, generator, args) {
 #' Generate a random vector of desired type
 #'
 #' @param size integer, vector length
-#' @param type "integer", "string", "boolean", "date", "time" or "numeric" type of vector values.
+#' @param type "integer", "string", "boolean", "date", "time",
+#'  "datetime" or "numeric" type of vector values.
 #'  If custom generator provided, should be set to "custom".
 #' @param unique boolean, should the output contain only unique values. Default: FALSE.
 #' @param custom_generator function or string, custom value generator.
@@ -38,7 +39,16 @@ replicate_unique <- function(size, generator, args) {
 random_vector <- function(size, type, custom_generator = NULL, unique = FALSE, ...) {
   checkmate::assert_choice(
     type,
-    choices = c("integer", "string", "boolean", "numeric", "custom", "date", "time")
+    choices = c(
+      "integer",
+      "string",
+      "boolean",
+      "numeric",
+      "custom",
+      "date",
+      "time",
+      "datetime"
+    )
   )
 
   if (type == "custom" && is.character(custom_generator)) {
@@ -57,12 +67,17 @@ random_vector <- function(size, type, custom_generator = NULL, unique = FALSE, .
       numeric = do.call(random_numeric, args),
       custom = do.call(custom_generator, args),
       date = do.call(random_date_vector, args),
-      time = do.call(random_time_vector, args)
+      time = do.call(random_time_vector, args),
+      datetime = do.call(random_datetime_vector, args)
     )
   }
 
-  if (type %in% c("date", "time")) {
-    output <- do.call(generator, c(args, size = size, unique = unique))
+  if (type %in% c("date", "time", "datetime")) {
+    args <- c(args, size = size)
+    if (type != "datetime") {
+      args <- c(args, unique = unique)
+    }
+    output <- do.call(generator, args)
     return(output)
   }
 
