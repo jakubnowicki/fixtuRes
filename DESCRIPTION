@@ -21,4 +21,5 @@ Suggests:
   lintr
 Encoding: UTF-8
 LazyData: true
+StagedInstall: no
 RoxygenNote: 7.1.1
