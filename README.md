@@ -71,3 +71,11 @@ my_mock_generator$get_data("my_data_frame")
 For a detailed description of configuration check [this document](https://jakubnowicki.github.io/fixtuRes/articles/configuration.html).
 
 Low level functions are described in R package documentation.
+
+## Showcase
+
+You can check `fixtuRes` in action in [Fake Data Generator](https://jakubnowicki.shinyapps.io/fake-data-generator/).
+It enables live preview of your yaml configuration, downloading yaml itself
+and generated dataset.
+
+<img src="man/figures/Fake_Data_Generator.png">
