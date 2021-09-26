@@ -85,7 +85,7 @@
 
       
 
-      </header><script src="configuration_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
+      </header><script src="configuration_files/header-attrs-2.11/header-attrs.js"></script><script src="configuration_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Configuration</h1>
@@ -103,12 +103,12 @@
 <h2 class="hasAnchor">
 <a href="#data-frames-in-a-dataset" class="anchor"></a>Data frames in a dataset</h2>
 <p>A single yaml file can include multiple data frames. Entry for each will be used as name of the data frame when it comes to generating data.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first_data_frame</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  ...</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">second_data_frame</span><span class="kw">:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  ...</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">third_data_frame</span><span class="kw">:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">first_data_frame</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="at">  ...</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="fu">second_data_frame</span><span class="kw">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="at">  ...</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="fu">third_data_frame</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="at">  ...</span></span></code></pre></div>
 </div>
 <div id="data-frame-configuration" class="section level2">
 <h2 class="hasAnchor">
@@ -152,12 +152,12 @@
 <code>max</code> (optional, default: 999999) - integer, maximum value to occur in the column.</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">integer_column</span><span class="kw">:</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> integer</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">integer_column</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> integer</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span></code></pre></div>
 </div>
 <div id="numeric" class="section level5">
 <h5 class="hasAnchor">
@@ -175,12 +175,12 @@
 <code>max</code> (optional, default: 999999) - numeric, maximum value to occur in the column.</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">numeric_column</span><span class="kw">:</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> numeric</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="fl">2.12</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="fl">10.3</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">numeric_column</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> numeric</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="fl">2.12</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="fl">10.3</span></span></code></pre></div>
 </div>
 <div id="string" class="section level5">
 <h5 class="hasAnchor">
@@ -202,12 +202,12 @@
 <code>pattern</code> (optional, default: “[A-Za-z0-9]”) - string pattern, for details check <a href="https://rdrr.io/cran/stringi/man/stringi-search-charclass.html">this</a>.</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">string_column</span><span class="kw">:</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">length</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pattern</span><span class="kw">:</span><span class="at"> </span><span class="st">"[ACGT]"</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">string_column</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">length</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="at">      </span><span class="fu">pattern</span><span class="kw">:</span><span class="at"> </span><span class="st">"[ACGT]"</span></span></code></pre></div>
 </div>
 <div id="boolean" class="section level5">
 <h5 class="hasAnchor">
@@ -219,10 +219,10 @@
 <code>type: boolean</code> - column type</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">boolean_column</span><span class="kw">:</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> boolean</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">boolean_column</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> boolean</span></span></code></pre></div>
 </div>
 <div id="set" class="section level5">
 <h5 class="hasAnchor">
@@ -241,17 +241,43 @@
 <li>If set is random, you can add parameters required by type of set (eg, min, max, pattern, etc.)</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">set_column_one</span><span class="kw">:</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> set</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">set</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"aardvark"</span><span class="kw">,</span><span class="at"> </span><span class="st">"elephant"</span><span class="kw">,</span><span class="at"> </span><span class="st">"hedgehog"</span><span class="kw">]</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">set_column_two</span><span class="kw">:</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> set</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">set_type</span><span class="kw">:</span><span class="at"> integer</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">set_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">set_column_one</span><span class="kw">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> set</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">set</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"aardvark"</span><span class="kw">,</span><span class="at"> </span><span class="st">"elephant"</span><span class="kw">,</span><span class="at"> </span><span class="st">"hedgehog"</span><span class="kw">]</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="at">    </span><span class="fu">set_column_two</span><span class="kw">:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> set</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="at">      </span><span class="fu">set_type</span><span class="kw">:</span><span class="at"> integer</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="at">      </span><span class="fu">set_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span></code></pre></div>
+</div>
+<div id="date" class="section level5">
+<h5 class="hasAnchor">
+<a href="#date" class="anchor"></a>date</h5>
+<p>Column with dates</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<code>type: date</code> - column type</li>
+<li>
+<code>min_date</code> - beginning of the time interval to sample from</li>
+<li>
+<code>max_date</code> - end of the time interval to sample from</li>
+<li>
+<code>format</code> (optional, default: NULL) - date format, for details check <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strptime">this</a>
+</li>
+<li>
+<code>tz</code> (optional, default: NULL) - time zone name</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">date_column</span><span class="kw">:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> date</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">min_date</span><span class="kw">:</span><span class="at"> 2012-03-31</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a><span class="at">      </span><span class="fu">max_date</span><span class="kw">:</span><span class="at"> 2015-12-23</span></span></code></pre></div>
 </div>
 </div>
 <div id="special-columns" class="section level4">
@@ -270,11 +296,11 @@
 <code>start</code> (optional, default: 1) - first value</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">id_column</span><span class="kw">:</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> id</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">start</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">id_column</span><span class="kw">:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> id</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">start</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span></code></pre></div>
 </div>
 <div id="distribution" class="section level5">
 <h5 class="hasAnchor">
@@ -290,28 +316,28 @@
 <code>...</code> - all arguments required by distribution function</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">normal_distribution</span><span class="kw">:</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> Gaussian</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">bernoulli_distribution</span><span class="kw">:</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> binomial</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">size</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">prob</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.5</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">poisson_distribution</span><span class="kw">:</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> Poisson</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">lambda</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">beta_distribution</span><span class="kw">:</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> rbeta</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">shape1</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">shape2</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">cauchy_distribution</span><span class="kw">:</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> Cauchy-Lorentz</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">normal_distribution</span><span class="kw">:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> Gaussian</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a><span class="at">    </span><span class="fu">bernoulli_distribution</span><span class="kw">:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> binomial</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a><span class="at">      </span><span class="fu">size</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a><span class="at">      </span><span class="fu">prob</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.5</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a><span class="at">    </span><span class="fu">poisson_distribution</span><span class="kw">:</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> Poisson</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a><span class="at">      </span><span class="fu">lambda</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a><span class="at">    </span><span class="fu">beta_distribution</span><span class="kw">:</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> rbeta</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a><span class="at">      </span><span class="fu">shape1</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a><span class="at">      </span><span class="fu">shape2</span><span class="kw">:</span><span class="at"> </span><span class="dv">30</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a><span class="at">    </span><span class="fu">cauchy_distribution</span><span class="kw">:</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> distribution</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true"></a><span class="at">      </span><span class="fu">distribution_type</span><span class="kw">:</span><span class="at"> Cauchy-Lorentz</span></span></code></pre></div>
 </div>
 </div>
 <div id="custom-columns" class="section level4">
@@ -331,17 +357,17 @@
 <li>All parameters required by your custom function.</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">return_sample_paste</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">vector_of_values</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">vector_of_values</span>, <span class="fl">2</span><span class="op">)</span>
   <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">values</span>, collapse <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">custom_column</span><span class="kw">:</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> custom</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">custom_generator</span><span class="kw">:</span><span class="at"> return_sample_paste</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">vector_of_values</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"a"</span><span class="kw">,</span><span class="at"> </span><span class="st">"b"</span><span class="kw">,</span><span class="at"> </span><span class="st">"c"</span><span class="kw">,</span><span class="at"> </span><span class="st">"d"</span><span class="kw">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">custom_column</span><span class="kw">:</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> custom</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">custom_generator</span><span class="kw">:</span><span class="at"> return_sample_paste</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a><span class="at">      </span><span class="fu">vector_of_values</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"a"</span><span class="kw">,</span><span class="at"> </span><span class="st">"b"</span><span class="kw">,</span><span class="at"> </span><span class="st">"c"</span><span class="kw">,</span><span class="at"> </span><span class="st">"d"</span><span class="kw">]</span></span></code></pre></div>
 </div>
 <div id="custom-column-generator" class="section level5">
 <h5 class="hasAnchor">
@@ -356,16 +382,16 @@
 <li>All parameters required by your custom function except <code>size</code>.</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">return_repeated_value</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">size</span>, <span class="va">value</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">value</span>, times <span class="op">=</span> <span class="va">size</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">custom_column</span><span class="kw">:</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> custom_column</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">custom_column_generator</span><span class="kw">:</span><span class="at"> return_repeated_value</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"Ask me about trilobites!"</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">custom_column</span><span class="kw">:</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> custom_column</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">custom_column_generator</span><span class="kw">:</span><span class="at"> return_repeated_value</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a><span class="at">      </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"Ask me about trilobites!"</span></span></code></pre></div>
 </div>
 </div>
 <div id="calculated-columns" class="section level4">
@@ -381,26 +407,26 @@
 </ul>
 <p>In general, formula can be a simple expression or a call of more complex function. In both cases formula has to include names of the columns required for the calculations. When using a function, make sure that it returns a vector of the same size as inputs.</p>
 <p>Example:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">check_column</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">column</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_lgl</a></span><span class="op">(</span><span class="va">column</span>, <span class="op">~</span><span class="va">.x</span> <span class="op">&gt;=</span> <span class="fl">10</span><span class="op">)</span>
 <span class="op">}</span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">basic_column</span><span class="kw">:</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> integer</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">second_basic_column</span><span class="kw">:</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> integer</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">calculated_column</span><span class="kw">:</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> calculated</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">formula</span><span class="kw">:</span><span class="at"> basic_column + second_basic_column</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">second_calculated_column</span><span class="kw">:</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> calculated</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">formula</span><span class="kw">:</span><span class="at"> check_column(calculated_column)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">basic_column</span><span class="kw">:</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> integer</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true"></a><span class="at">    </span><span class="fu">second_basic_column</span><span class="kw">:</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> integer</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true"></a><span class="at">    </span><span class="fu">calculated_column</span><span class="kw">:</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> calculated</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true"></a><span class="at">      </span><span class="fu">formula</span><span class="kw">:</span><span class="at"> basic_column + second_basic_column</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true"></a><span class="at">    </span><span class="fu">second_calculated_column</span><span class="kw">:</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> calculated</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true"></a><span class="at">      </span><span class="fu">formula</span><span class="kw">:</span><span class="at"> check_column(calculated_column)</span></span></code></pre></div>
 </div>
 </div>
 <div id="default-size" class="section level3">
@@ -412,29 +438,29 @@
 <li>integer - single value, number of rows</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">default_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="fu">data_frame</span><span class="kw">:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a><span class="at">    ...</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a><span class="at">  </span><span class="fu">default_size</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span></code></pre></div>
 <ul>
 <li>random integer - you can provide arguments to <code>random_integer</code> function. Result can be a static value (if <code>static: TRUE</code> provided) or a random number generator. The first one will generate a number of rows just once ant that number will be used when data is refreshed (wihtout providing a specific size).</li>
 </ul>
 <p>Example:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">random_number_of_rows</span><span class="kw">:</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">default_size</span><span class="kw">:</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">arguments</span><span class="kw">:</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">static_random_number_of_rows</span><span class="kw">:</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="at">    ...</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">default_size</span><span class="kw">:</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">arguments</span><span class="kw">:</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">static</span><span class="kw">:</span><span class="at"> </span><span class="ch">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="fu">random_number_of_rows</span><span class="kw">:</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a><span class="at">    ...</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a><span class="at">  </span><span class="fu">default_size</span><span class="kw">:</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a><span class="at">    </span><span class="fu">arguments</span><span class="kw">:</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true"></a><span class="fu">static_random_number_of_rows</span><span class="kw">:</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true"></a><span class="at">    ...</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true"></a><span class="at">  </span><span class="fu">default_size</span><span class="kw">:</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true"></a><span class="at">    </span><span class="fu">arguments</span><span class="kw">:</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true"></a><span class="at">    </span><span class="fu">static</span><span class="kw">:</span><span class="at"> </span><span class="ch">TRUE</span></span></code></pre></div>
 <p>For sample yaml configuration check <a href="https://github.com/jakubnowicki/fixtuRes/blob/master/examples/default_size_examples.yaml">this</a>.</p>
 </div>
 </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Generate a vector of a values from a set — set_vector • fixtuRes</title>
+<title>Get random time vector from an interval — random_time_vector • fixtuRes</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Generate a vector of a values from a set — set_vector" />
-<meta property="og:description" content="Generate a vector of a values from a set" />
+<meta property="og:title" content="Get random time vector from an interval — random_time_vector" />
+<meta property="og:description" content="Get random time vector from an interval" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@q_nowicki" />
 <meta name="twitter:site" content="@q_nowicki" />
@@ -133,16 +133,22 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Generate a vector of a values from a set</h1>
+    <h1>Get random time vector from an interval</h1>
     <small class="dont-index">Source: <a href='https://github.com/jakubnowicki/fixtuRes/blob/master/R/vectors.R'><code>R/vectors.R</code></a></small>
-    <div class="hidden name"><code>set_vector.Rd</code></div>
+    <div class="hidden name"><code>random_time_vector.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Generate a vector of a values from a set</p>
+    <p>Get random time vector from an interval</p>
     </div>
 
-    <pre class="usage"><span class='fu'>set_vector</span><span class='op'>(</span><span class='va'>size</span>, set <span class='op'>=</span> <span class='cn'>NULL</span>, set_type <span class='op'>=</span> <span class='cn'>NULL</span>, set_size <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>random_time_vector</span><span class='op'>(</span>
+  <span class='va'>size</span>,
+  min_time <span class='op'>=</span> <span class='st'>"00:00:00"</span>,
+  max_time <span class='op'>=</span> <span class='st'>"23:59:59"</span>,
+  resolution <span class='op'>=</span> <span class='st'>"seconds"</span>,
+  unique <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -152,35 +158,29 @@
       <td><p>integer, vector length</p></td>
     </tr>
     <tr>
-      <th>set</th>
-      <td><p>vector a set of values to pick from; default: NULL</p></td>
+      <th>min_time</th>
+      <td><p>character, beginning of the time interval to sample from</p></td>
     </tr>
     <tr>
-      <th>set_type</th>
-      <td><p>string if set is NULL generate a random set of type
-("integer", "string", "boolean", "numeric"); default: NULL</p></td>
+      <th>max_time</th>
+      <td><p>character, ending of the time interval to sample from</p></td>
     </tr>
     <tr>
-      <th>set_size</th>
-      <td><p>integer, number of elements in random set; default: NULL</p></td>
+      <th>resolution</th>
+      <td><p>character, one of "seconds", "minutes", "hours", time resolution</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>additional arguments for random set generator.
-For details check <code><a href='random_vector.html'>random_vector</a></code></p></td>
+      <th>unique</th>
+      <td><p>boolean, should the output be unique?</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
-
-    <p>When using a random set, be aware, that set has to be unique,
- thus if arguments passed to generator do not allow this, the function
- can end up in an infinite loop.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>set_vector</span><span class='op'>(</span><span class='fl'>10</span>, set <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>"c"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;  [1] "a" "c" "c" "a" "a" "c" "c" "c" "a" "a"</div><div class='input'><span class='fu'>set_vector</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>5</span>, set_type <span class='op'>=</span> <span class='st'>"string"</span>, set_size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "fO2c"   "PrWy1f" "PrWy1f" "fO2c"   "fO2c"  </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>random_time_vector</span><span class='op'>(</span><span class='fl'>12</span>, <span class='st'>"12:23:00"</span>, <span class='st'>"15:48:32"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "12H 68M 37S" "14H 30M 23S" "12H 27M 55S" "15H 48M 30S" "12H 23M 40S"
+#&gt;  [6] "15H 26M 18S" "14H 75M 33S" "13H 73M 36S" "14H 82M 27S" "13H 56M 6S" 
+#&gt; [11] "13H 78M 56S" "13H 47M 6S" </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
