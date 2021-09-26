@@ -6,3 +6,7 @@
 ^examples$
 ^README.md$
 ^docs$
+^_pkgdown\.yml$
+^pkgdown$
+^vignetes$
+.Rprofile
