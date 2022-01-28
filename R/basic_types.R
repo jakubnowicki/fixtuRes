@@ -71,3 +71,75 @@ random_numeric <- function(min = 0, max = 999999) {
 random_from_set <- function(set) {
   sample(set, 1)
 }
+
+
+#' Get random date from an interval
+#'
+#' @param min_date character or date, beginning of the time interval to sample from
+#' @param max_date character or date, ending of the time interval to sample from
+#' @param format character, check \code{\link[base]{strptime}} for details
+#' @export
+#'
+#' @importFrom lubridate as_date
+#' @examples
+#' random_date("2012-12-04", "2020-10-31")
+random_date <- function(min_date, max_date, format = NULL) {
+  random_date_vector(
+    size = 1,
+    min_date = min_date,
+    max_date = max_date,
+    format = format
+  )
+}
+
+#' Get random time from an interval
+#'
+#' @param min_time character, beginning of the time interval to sample from
+#' @param max_time character, ending of the time interval to sample from
+#' @param resolution character, one of "seconds", "minutes", "hours", time resolution
+#' @export
+#'
+#' @examples
+#' random_time("12:23:00", "15:48:32")
+random_time <- function(min_time = "00:00:00", max_time = "23:59:59", resolution = "seconds") {
+  random_time_vector(
+    size = 1,
+    min_time = min_time,
+    max_time = max_time,
+    resolution = resolution
+  )
+}
+
+#' Get random datetime
+#'
+#' @param min_date character or date, beginning of the dates interval to sample from
+#' @param max_date character or date, ending of the dates interval to sample from
+#' @param date_format character, check \code{\link[base]{strptime}} for details
+#' @param min_time character, beginning of the time interval to sample from
+#' @param max_time character, ending of the time interval to sample from
+#' @param time_resolution character, one of "seconds", "minutes", "hours", time resolution
+#' @param tz character, time zone to use
+#' @export
+#'
+#' @examples
+#' random_datetime("2012-12-04", "2020-10-31", min_time = "7:00:00", max_time = "17:00:00")
+random_datetime <- function(min_date,
+                            max_date,
+                            date_format = NULL,
+                            min_time = "00:00:00",
+                            max_time = "23:59:59",
+                            time_resolution = "seconds",
+                            tz = "UTC") {
+  random_datetime_vector(
+    1,
+    min_date = min_date,
+    max_date = max_date,
+    date_format = date_format,
+    date_unique = FALSE,
+    min_time = min_time,
+    max_time = max_time,
+    time_resolution = time_resolution,
+    time_unique = FALSE,
+    tz = tz
+  )
+}

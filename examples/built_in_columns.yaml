@@ -23,6 +23,20 @@ data_frame:
       set_size: 3
       min: 2
       max: 10
-    id_column:
-      type: id
-      start: 2
+    date_column:
+      type: date
+      min_date: 2012-03-31
+      max_date: 2015-12-23
+    time_column:
+      type: time
+      min_time: "10:00"
+      max_time: "18:00"
+      resolution: minutes
+    datetime_columns:
+      type: datetime
+      min_date: 2010-04-12
+      max_date: 2018-12-01
+      date_unique: TRUE
+      min_time: "9:00:00"
+      max_time: "17:00:00"
+      tz: "EST"

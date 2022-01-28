@@ -14,7 +14,8 @@ replicate_unique <- function(size, generator, args) {
 #' Generate a random vector of desired type
 #'
 #' @param size integer, vector length
-#' @param type "integer", "string", "boolean" or "numeric" type of vector values.
+#' @param type "integer", "string", "boolean", "date", "time",
+#'  "datetime" or "numeric" type of vector values.
 #'  If custom generator provided, should be set to "custom".
 #' @param unique boolean, should the output contain only unique values. Default: FALSE.
 #' @param custom_generator function or string, custom value generator.
@@ -38,7 +39,16 @@ replicate_unique <- function(size, generator, args) {
 random_vector <- function(size, type, custom_generator = NULL, unique = FALSE, ...) {
   checkmate::assert_choice(
     type,
-    choices = c("integer", "string", "boolean", "numeric", "custom")
+    choices = c(
+      "integer",
+      "string",
+      "boolean",
+      "numeric",
+      "custom",
+      "date",
+      "time",
+      "datetime"
+    )
   )
 
   if (type == "custom" && is.character(custom_generator)) {
@@ -55,8 +65,20 @@ random_vector <- function(size, type, custom_generator = NULL, unique = FALSE, .
       string = do.call(random_string, args),
       boolean = random_boolean(),
       numeric = do.call(random_numeric, args),
-      custom = do.call(custom_generator, args)
+      custom = do.call(custom_generator, args),
+      date = do.call(random_date_vector, args),
+      time = do.call(random_time_vector, args),
+      datetime = do.call(random_datetime_vector, args)
     )
+  }
+
+  if (type %in% c("date", "time", "datetime")) {
+    args <- c(args, size = size)
+    if (type != "datetime") {
+      args <- c(args, unique = unique)
+    }
+    output <- do.call(generator, args)
+    return(output)
   }
 
   if (isTRUE(unique)) {
@@ -121,4 +143,121 @@ special_vector <- function(size, type, configuration) {
       )
     )
   )
+}
+
+#' Get random date vector from an interval
+#'
+#' @param size integer, vector length
+#' @param min_date character or date, beginning of the time interval to sample from
+#' @param max_date character or date, ending of the time interval to sample from
+#' @param format character, check \code{\link[base]{strptime}} for details
+#' @param unique boolean, should the output be unique?
+#' @export
+#'
+#' @importFrom lubridate as_date
+#' @examples
+#' random_date_vector(12, "2012-12-04", "2020-10-31")
+random_date_vector <- function(size, min_date, max_date, format = NULL, unique = FALSE) {
+  as_date(
+    sample(
+      as_date(min_date, format = format, tz = NULL):as_date(max_date, format = format, tz = NULL),
+      size,
+      replace = !unique
+    )
+  )
+}
+
+#' Get random time vector from an interval
+#'
+#' @param size integer, vector length
+#' @param min_time character, beginning of the time interval to sample from
+#' @param max_time character, ending of the time interval to sample from
+#' @param resolution character, one of "seconds", "minutes", "hours", time resolution
+#' @param unique boolean, should the output be unique?
+#' @export
+#'
+#' @importFrom lubridate hms hm hours minutes seconds seconds_to_period period_to_seconds
+#' @importFrom purrr `%>%` map reduce
+#' @examples
+#' random_time_vector(12, "12:23:00", "15:48:32")
+random_time_vector <- function(size,
+                               min_time = "00:00:00",
+                               max_time = "23:59:59",
+                               resolution = "seconds",
+                               unique = FALSE) {
+  conversion_function <- switch(
+    resolution,
+    seconds = hms,
+    minutes = hm,
+    hours = hours
+  )
+
+  resolution_coefficient <- switch(
+    resolution,
+    seconds = 1,
+    minutes = 60,
+    hours = 3600
+  )
+
+  differences_conversion_function <- switch(
+    resolution,
+    seconds = identity,
+    minutes = minutes,
+    hours = hours
+  )
+
+  available_period <- period_to_seconds(
+    conversion_function(max_time) - conversion_function(min_time)
+  )/resolution_coefficient
+
+  time_differences <- sample(1:as.numeric(available_period), size, replace = !unique)
+
+  map(time_differences, ~ conversion_function(min_time) + seconds_to_period(differences_conversion_function(.x))) %>%
+    reduce(c)
+}
+
+#' Get random datetime vector
+#'
+#' @param size integer, vector length
+#' @param min_date character or date, beginning of the dates interval to sample from
+#' @param max_date character or date, ending of the dates interval to sample from
+#' @param date_format character, check \code{\link[base]{strptime}} for details
+#' @param date_unique boolean, should the date part of the output  be unique?
+#' @param min_time character, beginning of the time interval to sample from
+#' @param max_time character, ending of the time interval to sample from
+#' @param time_resolution character, one of "seconds", "minutes", "hours", time resolution
+#' @param time_unique boolean, should the time part of the output be unique?
+#' @param tz character, time zone to use
+#' @export
+#'
+#' @importFrom lubridate force_tz
+#' @examples
+#' random_datetime_vector(12, "2012-12-04", "2020-10-31", min_time = "7:00:00", max_time = "17:00:00")
+random_datetime_vector <- function(size,
+                                   min_date,
+                                   max_date,
+                                   date_format = NULL,
+                                   date_unique = FALSE,
+                                   min_time = "00:00:00",
+                                   max_time = "23:59:59",
+                                   time_resolution = "seconds",
+                                   time_unique = FALSE,
+                                   tz = "UTC") {
+  dates <- random_date_vector(
+    size,
+    min_date = min_date,
+    max_date = max_date,
+    format = date_format,
+    unique = date_unique
+  )
+
+  times <- random_time_vector(
+    size,
+    min_time = min_time,
+    max_time = max_time,
+    resolution = time_resolution,
+    unique = time_unique
+  )
+
+  return(force_tz(dates + times, tzone = tz))
 }

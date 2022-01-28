@@ -1,7 +1,7 @@
 Package: fixtuRes
 Type: Package
 Title: Generate Mock Data
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person("Jakub", "Nowicki", email = "q.nowicki@gmail.com",
   role = c("aut", "cre"))
 Description: Generate mock data for testing.
@@ -15,11 +15,15 @@ Imports:
   purrr,
   R6,
   glue,
-  yaml
+  yaml,
+  lubridate
 Suggests:
   testthat,
-  lintr
+  lintr,
+  knitr,
+  rmarkdown
 Encoding: UTF-8
 LazyData: true
 StagedInstall: no
 RoxygenNote: 7.1.1
+VignetteBuilder: knitr
