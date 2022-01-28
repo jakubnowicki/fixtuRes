@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fixtuRes</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -108,27 +108,27 @@
 <h3 class="hasAnchor">
 <a href="#mockdatagenerator" class="anchor"></a>MockDataGenerator</h3>
 <p>Let’s say, that you need a data frame with 5 columns. First one should be called “id” and contain a random integer from 100 to 999. Second, “code”, should be a string of three capital letters. Third one, “metric”, is a random numeric value in -10, 10 range. Fourth, called “type”, can be one of “TEST”, “PROD”, “QUA”. Finally, the fifth one is a boolean called “pass”. It should be set to TRUE if metric is above 3, otherwise it should be set to FALSE. To create a data frame that follows those rules you will need a configuration (you can find prepared file <a href="https://github.com/jakubnowicki/fixtuRes/blob/master/examples/basic_example.yaml">here</a>):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">my_data_frame</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="at">    </span><span class="fu">id</span><span class="kw">:</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> integer</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">999</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="at">      </span><span class="fu">unique</span><span class="kw">:</span><span class="at"> </span><span class="ch">TRUE</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="at">    </span><span class="fu">code</span><span class="kw">:</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="at">      </span><span class="fu">pattern</span><span class="kw">:</span><span class="at"> </span><span class="st">"[A-Z]"</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="at">      </span><span class="fu">length</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="at">    </span><span class="fu">metric</span><span class="kw">:</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> numeric</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">-10</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> set</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a><span class="at">      </span><span class="fu">set</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"TEST"</span><span class="kw">,</span><span class="at"> </span><span class="st">"PROD"</span><span class="kw">,</span><span class="at"> </span><span class="st">"QUA"</span><span class="kw">]</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a><span class="at">    </span><span class="fu">pass</span><span class="kw">:</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> calculated</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="at">      </span><span class="fu">formula</span><span class="kw">:</span><span class="at"> </span><span class="st">"metric &gt; 3"</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">my_data_frame</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">columns</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">id</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> integer</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">999</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">unique</span><span class="kw">:</span><span class="at"> </span><span class="ch">TRUE</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code</span><span class="kw">:</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> string</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">pattern</span><span class="kw">:</span><span class="at"> </span><span class="st">"[A-Z]"</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">length</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">metric</span><span class="kw">:</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> numeric</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">-10</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> set</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">set</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"TEST"</span><span class="kw">,</span><span class="at"> </span><span class="st">"PROD"</span><span class="kw">,</span><span class="at"> </span><span class="st">"QUA"</span><span class="kw">]</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">pass</span><span class="kw">:</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">type</span><span class="kw">:</span><span class="at"> calculated</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">formula</span><span class="kw">:</span><span class="at"> </span><span class="st">"metric &gt; 3"</span></span></code></pre></div>
 <p>Now you can pass this configuration to a new <code>MockDataGenerator</code> object:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my_mock_generator</span> <span class="op">&lt;-</span> <span class="fu">fixtuRes</span><span class="fu">::</span><span class="va"><a href="reference/MockDataGenerator.html">MockDataGenerator</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"path-to-my-configuration.yml"</span><span class="op">)</span></code></pre></div>
@@ -175,7 +175,7 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://codecov.io/gh/jakubnowicki/fixtuRes"><img src="https://codecov.io/gh/jakubnowicki/fixtuRes/branch/master/graph/badge.svg?token=GG94ZV51N0" alt="codecov"></a></li>
+<li><a href="https://codecov.io/gh/jakubnowicki/fixtuRes"><img src="https://codecov.io/gh/jakubnowicki/fixtuRes/branch/master/graph/badge.svg?token=BzaRTF3yeG" alt="codecov"></a></li>
 </ul>
 </div>
 </div>

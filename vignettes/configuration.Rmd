@@ -1,5 +1,10 @@
 ---
 title: Configuration
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Configuration}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 Datasets configuration can be provided in a `yaml` file or as a nested list. Below you can find a detailed description of possible options.
@@ -167,7 +172,6 @@ Parameters:
 * `min_date` - beginning of the time interval to sample from
 * `max_date` - end of the time interval to sample from
 * `format` (optional, default: NULL) - date format, for details check [this](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strptime)
-* `tz` (optional, default: NULL) - time zone name
 
 Example:
 
@@ -178,6 +182,58 @@ data_frame:
       type: date
       min_date: 2012-03-31
       max_date: 2015-12-23
+```
+
+##### time
+
+Column with times
+
+Parameters:
+
+* `type: time` - column type
+* `min_time` (optional, default: "00:00:00") - beginning of the time interval to sample from
+* `max_time` (optional, default: "23:59:59") - end of the time interval to sample from
+* `resolution` (optional, default: "seconds") - one of "seconds", "minutes", "hours", time resolution
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    time_column:
+      type: time
+      min_time: "12:23:00"
+      max_time: "15:48:32"
+      resolution: "seconds"
+```
+
+##### datetime
+
+Column with datetimes
+
+Parameters:
+
+* `type: datetime` - column type
+* `min_date` - beginning of the time interval to sample from
+* `max_date` - end of the time interval to sample from
+* `date_format` (optional, default: NULL) - date format, for details check [this](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strptime)
+* `min_time` (optional, default: "00:00:00") - beginning of the time interval to sample from
+* `max_time` (optional, default: "23:59:59") - end of the time interval to sample from
+* `time_resolution` (optional, default: "seconds") - one of "seconds", "minutes", "hours", time resolution
+* `tz` (optional, default: "UTC") - time zone name
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    time_column:
+      type: datetime
+      min_date: 2012-03-31
+      max_date: 2015-12-23
+      min_time: "12:23:00"
+      max_time: "15:48:32"
+      time_resolution: "seconds"
 ```
 
 #### Special columns
