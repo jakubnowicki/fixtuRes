@@ -11,6 +11,8 @@
 #' @export
 #' @importFrom rlang parse_expr
 #' @importFrom rlang fn_fmls_names
+#' @importFrom dplyr arrange
+#' @importFrom dplyr across
 #' @import purrr
 #' @import glue
 #' @return data.frame
@@ -46,7 +48,13 @@ random_data_frame <- function(configuration, size) {
   calculated_functions <- purrr::map(calculated, ~calculated_column_functions(.x$formula, columns = simple_columns))
   output <- calculate_columns(simple_columns, calculated_functions)
   output <- as.data.frame(output, stringsAsFactors = FALSE)
-  output[, col_names]
+  output <- output[, col_names]
+
+  if (!is.null(configuration$arrange)) {
+    output <- arrange(output, across(configuration$arrange))
+  }
+
+  output
 }
 
 # Wrapper that allows passing additional external arguments (eg. size)

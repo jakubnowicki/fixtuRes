@@ -16,7 +16,8 @@ Imports:
   R6,
   glue,
   yaml,
-  lubridate
+  lubridate,
+  dplyr
 Suggests:
   testthat,
   lintr,
