@@ -445,3 +445,23 @@ static_random_number_of_rows:
 ```
 
 For sample yaml configuration check [this](https://github.com/jakubnowicki/fixtuRes/blob/master/examples/default_size_examples.yaml).
+
+### Arrange data frame
+
+Data frame can be arranged by columns by providing a list of column names as `arange` field.
+
+Example:
+
+```yaml
+data_frame:
+  columns:
+    a:
+      ...
+    b:
+      ...
+    c:
+      ...
+    d:
+      ...
+  arrange: [a, c]
+```
