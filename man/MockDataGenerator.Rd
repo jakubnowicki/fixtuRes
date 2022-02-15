@@ -29,10 +29,10 @@ Create a new MockDataGenerator object
 \describe{
 \item{\code{configuration}}{list or path to YAML file with datasets configurations.
 Check
-\href{https://github.com/jakubnowicki/fixtuRes/blob/master/docs/configuration.md}{configuration}
+\href{https://github.com/jakubnowicki/fixtuRes/blob/master/vignettes/configuration.Rmd}{configuration}
 for details.
 For a sample YAML check
-\href{https://github.com/jakubnowicki/fixtuRes/blob/master/examples}{examples}.}
+\href{https://github.com/jakubnowicki/fixtuRes/tree/master/examples}{examples}.}
 }
 \if{html}{\out{</div>}}
 }
