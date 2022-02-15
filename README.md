@@ -2,7 +2,6 @@
 
 <!-- badges: start -->
 ![R-CMD-check](https://github.com/jakubnowicki/fixtuRes/workflows/R-CMD-check/badge.svg)
-[![codecov](https://codecov.io/gh/jakubnowicki/fixtuRes/branch/master/graph/badge.svg?token=BzaRTF3yeG)](https://codecov.io/gh/jakubnowicki/fixtuRes)
 <!-- badges: end -->
 
 Generate mock data in R using yaml configuration.
