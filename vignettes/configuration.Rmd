@@ -11,7 +11,7 @@ Datasets configuration can be provided in a `yaml` file or as a nested list. Bel
 
 ## Data frames in a dataset
 
-A single yaml file can include multiple data frames. Entry for each will be used as name of the data frame when it comes to generating data.
+A single YAML file can include multiple data frames. Entry for each will be used as name of the data frame when it comes to generating data.
 
 ```yaml
 first_data_frame:
@@ -47,7 +47,7 @@ The order of columns will be the same as the order of entries in the configurati
 
 #### Built-in columns
 
-Basic column types. For an example yaml configuration check [this](../examples/built_in_columns.yaml)
+Basic column types. For an example YAML configuration check [this](../examples/built_in_columns.yaml)
 
 ##### integer
 
@@ -144,7 +144,7 @@ Parameters:
 * `set` (optional, default: NULL) - set of possible values, if NULL, will use a random set.
 * `set_type` (optional, default: NULL) - type of random set, can be "integer", "numeric" or "string".
 * `set_size` (optional, default: NULL) - integer, size of random set
-* If set is random, you can add parameters required by type of set (eg, min, max, pattern, etc.)
+* If set is random, you can add parameters required by type of set (e.g. min, max, pattern, etc.)
 
 Example:
 
@@ -238,7 +238,7 @@ data_frame:
 
 #### Special columns
 
-Special predefined types of columns. For an example yaml configuration check [this](https://github.com/jakubnowicki/fixtuRes/blob/master/examples/special_types.yaml)
+Special predefined types of columns. For an example YAML configuration check [this](https://github.com/jakubnowicki/fixtuRes/blob/master/examples/special_types.yaml)
 
 ##### id
 
@@ -263,7 +263,7 @@ data_frame:
 
 Column filled with values that follow given statistical distribution.
 You can use one of the distributions available [here](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Distributions.html). You can use
-funciton name (eg. `rnorm`) or regular distribution name (eg. "Normal").
+function name (e.g. `rnorm`) or regular distribution name (e.g. "Normal").
 For available names, check [this file](https://github.com/jakubnowicki/fixtuRes/blob/master/inst/distributions.yaml).
 
 Parameters:
@@ -422,7 +422,7 @@ data_frame:
   default_size: 10
 ```
 
-* random integer - you can provide arguments to `random_integer` function. Result can be a static value (if `static: TRUE` provided) or a random number generator. The first one will generate a number of rows just once ant that number will be used when data is refreshed (wihtout providing a specific size).
+* random integer - you can provide arguments to `random_integer` function. Result can be a static value (if `static: TRUE` provided) or a random number generator. The first one will generate a number of rows just once ant that number will be used when data is refreshed (without providing a specific size).
 
 Example:
 
@@ -444,7 +444,7 @@ static_random_number_of_rows:
     static: TRUE
 ```
 
-For sample yaml configuration check [this](https://github.com/jakubnowicki/fixtuRes/blob/master/examples/default_size_examples.yaml).
+For sample YAML configuration check [this](https://github.com/jakubnowicki/fixtuRes/blob/master/examples/default_size_examples.yaml).
 
 ### Arrange data frame
 

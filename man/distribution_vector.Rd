@@ -10,8 +10,8 @@ distribution_vector(size, distribution_type, distribution_arguments = list())
 \item{size}{integer, size of the output vector}
 
 \item{distribution_type}{character, type of distribution. You can use
-direct function name, eg. "rnorm" or a regular name (eg. "normal", "gaussian").
-All standard distridutions from {stats} package are covered. For a list
+direct function name, e.g. "rnorm" or a regular name (e.g. "normal", "gaussian").
+All standard distributions from {stats} package are covered. For a list
 check \link[stats]{Distributions}}
 
 \item{distribution_arguments}{list of arguments required by the distribution function}

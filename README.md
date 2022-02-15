@@ -4,7 +4,7 @@
 ![R-CMD-check](https://github.com/jakubnowicki/fixtuRes/workflows/R-CMD-check/badge.svg)
 <!-- badges: end -->
 
-Generate mock data in R using yaml configuration.
+Generate mock data in R using YAML configuration.
 
 ## Installation
 
@@ -16,7 +16,7 @@ remotes::install_github("jakubnowicki/fixtuRes@master")
 
 ## Usage
 
-`fixtuRes` package provides a set of tools that allow generating random mock data for testing or to use during development. Main one, R6 class named `MockDataGenerator` is a data generator feeded with a configuration
+`fixtuRes` package provides a set of tools that allow generating random mock data for testing or to use during development. Main one, R6 class named `MockDataGenerator` is a data generator fed with a configuration
 provided in a `yaml` file. You can also use lower level functions designed to generate data frames, vectors or single values.
 
 ### MockDataGenerator
@@ -74,7 +74,7 @@ Low level functions are described in R package documentation.
 ## Showcase
 
 You can check `fixtuRes` in action in [Fake Data Generator](https://jakubnowicki.shinyapps.io/fake-data-generator/).
-It enables live preview of your yaml configuration, downloading yaml itself
+It enables live preview of your YAML configuration, downloading YAML itself
 and generated dataset.
 
 <img src="man/figures/Fake_Data_Generator.png">

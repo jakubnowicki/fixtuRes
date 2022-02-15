@@ -60,7 +60,7 @@ random_data_frame <- function(configuration, size) {
   output
 }
 
-# Wrapper that allows passing additional external arguments (eg. size)
+# Wrapper that allows passing additional external arguments (e.g. size)
 create_column_wrapper <- function(configuration, size) {
   args <- list(configuration = configuration, size = size)
   return(do.call(create_column, args))
