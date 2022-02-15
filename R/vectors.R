@@ -208,7 +208,7 @@ random_time_vector <- function(size,
 
   available_period <- period_to_seconds(
     conversion_function(max_time) - conversion_function(min_time)
-  )/resolution_coefficient
+  ) / resolution_coefficient
 
   time_differences <- sample(1:as.numeric(available_period), size, replace = !unique)
 

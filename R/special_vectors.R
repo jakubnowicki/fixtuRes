@@ -34,9 +34,8 @@ distribution_vector <- function(size, distribution_type, distribution_arguments 
 }
 
 convert_distribution_name_to_function <- function(distribution_name) {
-  dist_name_lower <- tolower(distribution_name)
   distributions <- yaml::read_yaml(system.file("distributions.yaml", package = "fixtuRes"))
-  function_name <- names(purrr::keep(distributions, ~dist_name_lower %in% .x))
+  function_name <- names(purrr::keep(distributions, ~ tolower(distribution_name) %in% .x))
 
   if (length(function_name) == 1) {
     return(function_name)

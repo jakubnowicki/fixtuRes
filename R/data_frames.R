@@ -45,7 +45,10 @@ random_data_frame <- function(configuration, size) {
   simple <- purrr::discard(configuration$columns, ~.x$type == "calculated")
   calculated <- purrr::keep(configuration$columns, ~.x$type == "calculated")
   simple_columns <- purrr::map(simple, ~create_column_wrapper(.x, size = size))
-  calculated_functions <- purrr::map(calculated, ~calculated_column_functions(.x$formula, columns = simple_columns))
+  calculated_functions <- purrr::map(
+    calculated,
+    ~calculated_column_functions(.x$formula, columns = simple_columns)
+  )
   output <- calculate_columns(simple_columns, calculated_functions)
   output <- as.data.frame(output, stringsAsFactors = FALSE)
   output <- output[, col_names]
@@ -71,16 +74,29 @@ create_column <- function(size, configuration) {
   }
 
   generator <- switch(configuration$type,
-    set = do.call(set_vector, c(size = size, configuration[names(configuration) != "type"])),
+    set = do.call(
+      set_vector,
+      c(size = size, configuration[names(configuration) != "type"])
+    ),
     custom_column = do.call(
       configuration$custom_column_generator,
-      c(size = size, configuration[!(names(configuration) %in% c("type", "custom_column_generator"))])
+      c(
+        size = size,
+        configuration[!(names(configuration) %in% c("type", "custom_column_generator"))]
+      )
     ),
     special_vector = do.call(
       special_vector,
-      list(type = special_type, size = size, configuration = configuration[names(configuration) != "type"])
+      list(
+        type = special_type,
+        size = size,
+        configuration = configuration[names(configuration) != "type"]
+      )
     ),
-    do.call(random_vector, c(type = configuration$type, size = size, configuration[names(configuration) != "type"]))
+    do.call(
+      random_vector,
+      c(type = configuration$type, size = size, configuration[names(configuration) != "type"])
+    )
   )
 
   return(generator)
@@ -100,7 +116,7 @@ check_if_is_function <- function(string) {
 
 # convert string to a function
 convert_to_function <- function(string) {
-  args <- paste(all.vars(rlang::parse_expr(string)), collapse = ", ")
+  args <- paste(all.vars(rlang::parse_expr(string)), collapse = ", ") #nolint
   glue::glue(
     "function({args}) {{
         {string}
@@ -115,7 +131,6 @@ calculated_column_functions <- function(fun, columns) {
   }
   fun <- eval(rlang::parse_expr(fun))
   function_args <- rlang::fn_fmls_names(fun)
-  args <- columns[function_args]
   return(list(fun = fun, args = function_args))
 }
 
@@ -144,7 +159,7 @@ recursive_column_calculation <- function(simple_columns, functions) {
       simple_columns[[function_name]] <- do.call(fun$fun, simple_columns[fun$args])
       functions[[function_name]] <- NULL
       if (length(functions) == 0) {
-        break()
+        break() #nolint
       } else {
         simple_columns <- recursive_column_calculation(simple_columns, functions)
       }

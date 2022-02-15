@@ -7,7 +7,7 @@
 #' @import yaml
 #' @importFrom checkmate test_string test_function test_int
 #' @export
-MockDataGenerator <- R6::R6Class(
+MockDataGenerator <- R6::R6Class( #nolint
   classname = "MockDataGenerator",
   private = list(
     generators = list(),
@@ -36,9 +36,11 @@ MockDataGenerator <- R6::R6Class(
     #' @description
     #' Create a new MockDataGenerator object
     #' @param configuration list or path to yaml file with datasets configurations.
-    #'  Check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/docs/configuration.md}{configuration}
+    #'  Check
+    #'  \href{https://github.com/jakubnowicki/fixtuRes/blob/master/docs/configuration.md}{configuration}
     #'  for details.
-    #'  For a sample yaml check \href{https://github.com/jakubnowicki/fixtuRes/blob/master/examples}{examples}.
+    #'  For a sample yaml check
+    #'  \href{https://github.com/jakubnowicki/fixtuRes/blob/master/examples}{examples}.
     #' @return A new MockDataGenerator object
     initialize = function(configuration) {
       if (test_string(configuration)) {
