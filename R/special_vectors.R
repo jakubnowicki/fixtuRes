@@ -15,8 +15,8 @@ id_vector <- function(size, start = 1) {
 #'
 #' @param size integer, size of the output vector
 #' @param distribution_type character, type of distribution. You can use
-#'  direct function name, eg. "rnorm" or a regular name (eg. "normal", "gaussian").
-#'  All standard distridutions from {stats} package are covered. For a list
+#'  direct function name, e.g. "rnorm" or a regular name (e.g. "normal", "gaussian").
+#'  All standard distributions from {stats} package are covered. For a list
 #'  check \link[stats]{Distributions}
 #' @param distribution_arguments list of arguments required by the distribution function
 #'

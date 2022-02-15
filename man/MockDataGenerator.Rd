@@ -27,11 +27,11 @@ Create a new MockDataGenerator object
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{configuration}}{list or path to yaml file with datasets configurations.
+\item{\code{configuration}}{list or path to YAML file with datasets configurations.
 Check
 \href{https://github.com/jakubnowicki/fixtuRes/blob/master/docs/configuration.md}{configuration}
 for details.
-For a sample yaml check
+For a sample YAML check
 \href{https://github.com/jakubnowicki/fixtuRes/blob/master/examples}{examples}.}
 }
 \if{html}{\out{</div>}}
