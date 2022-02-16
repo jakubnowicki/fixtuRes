@@ -95,19 +95,19 @@ and <code><a href="random_numeric.html">random_numeric</a></code> for details</p
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">random_vector</span><span class="op">(</span><span class="fl">5</span>, <span class="st">"boolean"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE  TRUE FALSE  TRUE FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE FALSE  TRUE  TRUE  TRUE</span>
 <span class="r-in"><span class="fu">random_vector</span><span class="op">(</span><span class="fl">10</span>, <span class="st">"numeric"</span>, min <span class="op">=</span> <span class="fl">1.5</span>, max <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 3.212620 4.033722 2.698047 4.007251 2.135780 1.693397 2.954284 4.920425</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] 3.408869 1.778942</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.975971 4.017099 3.993171 3.327923 4.035108 4.365770 4.598703 4.558451</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] 3.440393 3.905865</span>
 <span class="r-in"><span class="fu">random_vector</span><span class="op">(</span><span class="fl">4</span>, <span class="st">"string"</span>, length <span class="op">=</span> <span class="fl">4</span>, pattern <span class="op">=</span> <span class="st">"[ACGT]"</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "AGCA" "TGAC" "CCTT" "ACAC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "GTCT" "GAAG" "GTTC" "TTGC"</span>
 <span class="r-in"><span class="fu">random_vector</span><span class="op">(</span><span class="fl">2</span>, <span class="st">"integer"</span>, max <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0 9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4 8</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># custom generator</span></span>
 <span class="r-in"><span class="va">custom_generator</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">random_vector</span><span class="op">(</span><span class="fl">3</span>, type <span class="op">=</span> <span class="st">"custom"</span>, custom_generator <span class="op">=</span> <span class="va">custom_generator</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "A" "A" "B"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "B" "A" "A"</span>
 </code></pre></div>
     </div>
   </div>
