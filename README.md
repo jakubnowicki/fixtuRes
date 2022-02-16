@@ -2,16 +2,26 @@
 
 <!-- badges: start -->
 ![R-CMD-check](https://github.com/jakubnowicki/fixtuRes/workflows/R-CMD-check/badge.svg)
+[![version](https://www.r-pkg.org/badges/version/fixtuRes)](https://CRAN.R-project.org/package=fixtuRes)
+[![cranlogs](https://cranlogs.r-pkg.org/badges/fixtuRes)](https://CRAN.R-project.org/package=fixtuRes)
+[![total](https://cranlogs.r-pkg.org/badges/grand-total/fixtuRes)](https://CRAN.R-project.org/package=fixtuRes)
+
 <!-- badges: end -->
 
 Generate mock data in R using YAML configuration.
 
 ## Installation
 
+You can install a stable release from CRAN repository:
+
+```r
+install.packages("fixtuRes")
+```
+
 You can install the latest version with `remotes`:
 
-``` r
-remotes::install_github("jakubnowicki/fixtuRes@master")
+```r
+remotes::install_github("jakubnowicki/fixtuRes@develop")
 ```
 
 ## Usage

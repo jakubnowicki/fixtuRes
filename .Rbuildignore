@@ -11,3 +11,4 @@
 ^vignetes$
 .Rprofile
 .lintr
+^CRAN-SUBMISSION$
