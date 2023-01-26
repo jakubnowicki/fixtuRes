@@ -448,7 +448,7 @@ For sample YAML configuration check [this](https://github.com/jakubnowicki/fixtu
 
 ### Arrange data frame
 
-Data frame can be arranged by columns by providing a list of column names as `arange` field.
+Data frame can be arranged by columns by providing a list of column names as `arrange` field.
 
 Example:
 
